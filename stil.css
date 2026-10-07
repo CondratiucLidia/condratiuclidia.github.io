@@ -245,14 +245,13 @@ button { font: inherit; color: inherit; }
 .galerie button.poza img.intreaga { object-fit: contain; background: #fff; }
 .galerie button.poza:hover img { opacity: 0.92; }
 .galerie .lata { grid-column: 1 / -1; }
-.galerie button.poza.lata img { aspect-ratio: auto; height: auto; max-height: 86vh; object-fit: contain; background: transparent; }
+.galerie button.poza.lata img { aspect-ratio: auto; height: auto; max-height: none; object-fit: contain; background: transparent; }
 .galerie button.poza.lata { background: transparent; }
-.galerie button.poza.lata img.inalta { max-height: 60vh; }
 .galerie .lipsa {
   display: flex; align-items: center; justify-content: center; min-height: 160px; padding: 16px;
   border: 1px dashed var(--nuc); color: var(--nuc); font-size: 14px; text-align: center; border-radius: 2px;
 }
-@media (max-width: 600px) { .galerie { grid-template-columns: minmax(0, 1fr); } .galerie .lata img { max-height: none; } }
+@media (max-width: 600px) { .galerie { grid-template-columns: minmax(0, 1fr); } }
 
 .urmatorul { margin-top: clamp(48px, 7vw, 88px); padding-top: 28px; border-top: 1px solid var(--linie); }
 .urmatorul a { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: center; text-decoration: none; }
