@@ -102,10 +102,14 @@ window.SITE = {
    PROIECTELE — în ordinea în care apar pe site.
 
    Cum adaugi un proiect nou (detaliat în GHID):
-   1. Pune pozele în  imagini/proiecte/numele-proiectului/  și numește-le
-      01.jpg, 02.jpg, 03.jpg … (în ordinea în care vrei să apară).
-   2. Copiază un bloc { … }, de la acolada de deschidere până la cea de
-      închidere cu virgulă, și schimbă textele.
+   1. Fă un folder nou în  imagini/proiecte/  (ex.: dormitor-alb) și pune în el
+      pozele: 01.jpg, 02.jpg, 03.jpg … (în ordinea în care vrei să apară).
+      Apasă „Verifica site-ul”: proiectul apare deja, cu numele folderului
+      drept titlu („Dormitor alb”).
+   2. Ca să aibă titlu frumos, descriere și traducere în rusă: copiază un bloc
+      { … } de mai jos, de la acolada de deschidere până la cea de închidere
+      cu virgulă, lipește-l unde vrei să apară și schimbă textele.
+   Un folder șters sau golit = proiectul dispare singur de pe site.
 
    Câmpuri:
    • id        – numele folderului cu poze (litere mici, fără spații și diacritice)

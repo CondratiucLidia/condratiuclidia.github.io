@@ -15,6 +15,24 @@
     return;
   }
 
+  // Folderele de poze decid ce proiecte există (imagini/lista.js, generat de „Verifica” / „Publica”):
+  //  • un proiect din continut.js al cărui folder a dispărut sau e gol → nu se mai arată;
+  //  • un folder nou, fără bloc în continut.js → apare automat, cu numele folderului drept titlu.
+  if (window.POZE && typeof window.POZE === "object") {
+    var cunoscute = {};
+    P = P.filter(function (p) {
+      cunoscute[p.id] = true;
+      var lista = window.POZE[p.id];
+      return Array.isArray(p.poze) || (lista && lista.length > 0);
+    });
+    Object.keys(window.POZE).forEach(function (id) {
+      if (cunoscute[id] || !window.POZE[id].length) return;
+      var nume = id.replace(/[-_]+/g, " ").trim();
+      nume = nume.charAt(0).toUpperCase() + nume.slice(1);
+      P.push({ id: id, categorie: "", titlu: { ro: nume, ru: "" }, scurt: "", descriere: "", rol: "", coperta: window.POZE[id][0] });
+    });
+  }
+
   var UI = {
     ro: {
       proiecte: "Proiecte", despre: "Despre mine", contact: "Contact", meniu: "Meniu",
