@@ -114,7 +114,9 @@ window.SITE = {
    • stadiu    – "concept" (doar randări) sau "realizat" (mobila e făcută);
                  gol = nu apare
    • coperta   – poza de pe cartonaș
-   • poze      – un număr (ex.: 12 = de la 01.jpg la 12.jpg)
+   • poze      – CEL MAI SIMPLU: nu scrii rândul deloc → se arată toate pozele
+                 din folder, în ordinea numelor (01, 02, 03…).
+                 SAU un număr (ex.: 12 = de la 01.jpg la 12.jpg)
                  SAU o listă: ["01.jpg", "02.jpg", …]. În listă, un rând care
                  începe cu  #  devine subtitlu: "# Română | Русский"
    ===================================================================== */

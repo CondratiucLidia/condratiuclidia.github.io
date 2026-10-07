@@ -69,6 +69,10 @@
   function cale(id, fisier) { return "imagini/proiecte/" + encodeURI(id) + "/" + encodeURI(fisier); }
   function nr2(n) { return n < 10 ? "0" + n : String(n); }
   function listaPoze(p) {
+    if (p.poze == null || p.poze === "") {
+      // fără „poze:” în continut.js → toate pozele din folder (imagini/lista.js, generat la publicare)
+      return (window.POZE && window.POZE[p.id]) ? window.POZE[p.id].slice() : [];
+    }
     if (typeof p.poze === "number") {
       var a = [];
       for (var i = 1; i <= p.poze; i++) a.push(nr2(i) + ".jpg");
