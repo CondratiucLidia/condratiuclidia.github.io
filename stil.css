@@ -245,9 +245,9 @@ button { font: inherit; color: inherit; }
 .galerie button.poza img.intreaga { object-fit: contain; background: #fff; }
 .galerie button.poza:hover img { opacity: 0.92; }
 .galerie .lata { grid-column: 1 / -1; }
-.galerie .lata img { aspect-ratio: auto; max-height: 86vh; object-fit: contain; background: transparent; }
+.galerie button.poza.lata img { aspect-ratio: auto; height: auto; max-height: 86vh; object-fit: contain; background: transparent; }
 .galerie button.poza.lata { background: transparent; }
-.galerie .lata img.inalta { max-height: 60vh; }
+.galerie button.poza.lata img.inalta { max-height: 60vh; }
 .galerie .lipsa {
   display: flex; align-items: center; justify-content: center; min-height: 160px; padding: 16px;
   border: 1px dashed var(--nuc); color: var(--nuc); font-size: 14px; text-align: center; border-radius: 2px;
