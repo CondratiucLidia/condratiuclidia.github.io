@@ -160,7 +160,7 @@ window.PROIECTE = [
     rol: { ro: "Concept interior, randări", ru: "Концепция интерьера, рендеры", en: "Interior concept, renderings" },
     coperta: "03.jpg",
     poze: [
-      "02.jpg",
+      "02.png",
       "# Direcția I — piatră, lemn și metal | Направление I — камень, дерево и металл | Direction I — stone, wood and metal",
       "03.jpg", "04.jpg", "05.jpg", "06.jpg",
       "01.jpg", "07.jpg", "08.jpg", "09.jpg", "10.jpg",
