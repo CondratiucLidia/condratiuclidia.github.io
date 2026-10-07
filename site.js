@@ -51,14 +51,28 @@
       lucrari: "Избранные работы", toate: "Все", vezi: "Смотреть проекты", descarcaCv: "Скачать резюме",
       cumLucrez: "Как я работаю", procesSupra: "От идеи до производства",
       despreSupra: "Дизайнер интерьеров и мебели", programe: "Программы", limbi: "Языки",
-      cvRo: "Резюме на румынском (PDF)", cvRu: "Резюме на русском (PDF)",
+      cvRo: "Резюме на румынском (PDF)", cvRu: "Резюме на русском (PDF)", cvEn: "Резюме на английском (PDF)",
       contactSupra: "Давайте обсудим", inapoi: "Все проекты", urmatorul: "Следующий проект",
       rol: "Моя роль", concept: "Концепция", realizat: "Реализовано",
       inchide: "Закрыть", anterioara: "Предыдущее фото", urmatoarea: "Следующее фото",
       poza: "изображение", lipsa: "Нет фото: ", sari: "Перейти к содержанию",
       categorii: { interior: "Интерьеры", bucatarie: "Кухни", mobilier: "Мебель" },
     },
+    en: {
+      proiecte: "Projects", despre: "About me", contact: "Contact", meniu: "Menu",
+      lucrari: "Selected work", toate: "All", vezi: "View projects", descarcaCv: "Download CV",
+      cumLucrez: "How I work", procesSupra: "From idea to production",
+      despreSupra: "Interior and furniture designer", programe: "Software", limbi: "Languages",
+      cvRo: "CV in Romanian (PDF)", cvRu: "CV in Russian (PDF)", cvEn: "CV in English (PDF)",
+      contactSupra: "Let's talk", inapoi: "All projects", urmatorul: "Next project",
+      rol: "My role", concept: "Concept", realizat: "Built",
+      inchide: "Close", anterioara: "Previous image", urmatoarea: "Next image",
+      poza: "image", lipsa: "Missing image: ", sari: "Skip to content",
+      categorii: { interior: "Interiors", bucatarie: "Kitchens", mobilier: "Furniture" },
+    },
   };
+  UI.ro.cvEn = "CV în engleză (PDF)";
+  var LIMBI = ["ro", "ru", "en"];
 
   var local = location.protocol === "file:";
   var lang = alegeLimba();
@@ -67,9 +81,9 @@
 
   // ---------- utilitare ----------
   function alegeLimba() {
-    var m = /[?&]lang=(ro|ru)\b/.exec(location.search);
+    var m = /[?&]lang=(ro|ru|en)\b/.exec(location.search);
     if (m) return m[1];
-    try { var s = localStorage.getItem("limba"); if (s === "ro" || s === "ru") return s; } catch (e) {}
+    try { var s = localStorage.getItem("limba"); if (s === "ro" || s === "ru" || s === "en") return s; } catch (e) {}
     return "ro";
   }
   function salveazaLimba() { try { localStorage.setItem("limba", lang); } catch (e) {} }
@@ -102,8 +116,10 @@
     return listaPoze(p).filter(function (x) { return String(x).trim().charAt(0) !== "#"; });
   }
   function subtitlu(rand) {
+    // "# Română | Русский | English"
     var parti = String(rand).replace(/^\s*#\s*/, "").split("|");
-    return (lang === "ru" && parti[1] ? parti[1] : parti[0]).trim();
+    var i = { ro: 0, ru: 1, en: 2 }[lang] || 0;
+    return (parti[i] || parti[0]).trim();
   }
   function categoriiDe(p) {
     return [].concat(p.categorie || []).filter(Boolean);
@@ -134,14 +150,29 @@
   }
 
   // ---------- bucăți comune ----------
+  // Butoanele de descărcare a CV-ului: limba curentă prima, apoi celelalte.
+  function butoaneCv(clasaPrima, clasaRest) {
+    if (!S.cv) return "";
+    var ordine = [lang].concat(LIMBI.filter(function (l) { return l !== lang; }));
+    var eticheta = { ro: "cvRo", ru: "cvRu", en: "cvEn" };
+    var html = "", prima = true;
+    ordine.forEach(function (l) {
+      if (!S.cv[l]) return;
+      html += '<a class="buton ' + (prima ? clasaPrima : clasaRest) + '" href="' + esc(S.cv[l]) + '" target="_blank" rel="noopener">' + esc(u(eticheta[l])) + "</a>";
+      prima = false;
+    });
+    return html;
+  }
+
   function antet() {
     var nav =
       '<a href="#proiecte">' + esc(u("proiecte")) + "</a>" +
       '<a href="#despre">' + esc(u("despre")) + "</a>" +
       '<a href="#contact">' + esc(u("contact")) + "</a>" +
-      '<div class="limba" role="group" aria-label="Limba / Язык">' +
-      '<button type="button" data-limba="ro" aria-pressed="' + (lang === "ro") + '">RO</button>' +
-      '<button type="button" data-limba="ru" aria-pressed="' + (lang === "ru") + '">RU</button></div>';
+      '<div class="limba" role="group" aria-label="Limba / Язык / Language">' +
+      LIMBI.map(function (l) {
+        return '<button type="button" data-limba="' + l + '" aria-pressed="' + (lang === l) + '">' + l.toUpperCase() + "</button>";
+      }).join("") + "</div>";
     return (
       '<a class="ascuns-vizual" href="#continut">' + esc(u("sari")) + "</a>" +
       '<header class="antet" id="antet"><div class="container">' +
@@ -163,9 +194,7 @@
       .forEach(function (r) {
         if (c[r[0]]) retele += '<a href="' + esc(c[r[0]]) + '" target="_blank" rel="noopener">' + r[1] + "</a>";
       });
-    var cv = "";
-    if (S.cv && S.cv.ro) cv += '<a class="buton contur" href="' + esc(S.cv.ro) + '" target="_blank" rel="noopener">' + esc(u("cvRo")) + "</a>";
-    if (S.cv && S.cv.ru) cv += '<a class="buton contur" href="' + esc(S.cv.ru) + '" target="_blank" rel="noopener">' + esc(u("cvRu")) + "</a>";
+    var cv = butoaneCv("contur", "contur");
     var clover = S.arataClover === false ? "" :
       '<div class="clover"><img src="imagini/logo/semn-auriu.png" alt="" width="18" height="26"><span>CLOVER</span></div>';
     return (
@@ -263,9 +292,7 @@
     var fise = "";
     if (t(S.texte.programe)) fise += "<div><dt>" + esc(u("programe")) + "</dt><dd>" + esc(t(S.texte.programe)) + "</dd></div>";
     if (t(S.texte.limbi)) fise += "<div><dt>" + esc(u("limbi")) + "</dt><dd>" + esc(t(S.texte.limbi)) + "</dd></div>";
-    var butoaneCv = "";
-    if (S.cv && S.cv.ro) butoaneCv += '<a class="buton" href="' + esc(S.cv.ro) + '" target="_blank" rel="noopener">' + esc(u("cvRo")) + "</a>";
-    if (S.cv && S.cv.ru) butoaneCv += '<a class="buton contur" href="' + esc(S.cv.ru) + '" target="_blank" rel="noopener">' + esc(u("cvRu")) + "</a>";
+    var cvBtn = butoaneCv("", "contur");
     var cifre = (S.texte.cifre || []).map(function (c) {
       return "<div><dt>" + esc(c.numar) + "</dt><dd>" + esc(t(c.text)) + "</dd></div>";
     }).join("");
@@ -276,7 +303,7 @@
       '<h2 class="titlu-sectiune">' + esc(u("despre")) + "</h2>" +
       paragrafe +
       (fise ? '<dl class="fise">' + fise + "</dl>" : "") +
-      (butoaneCv ? '<div class="butoane" style="display:flex;flex-wrap:wrap;gap:12px">' + butoaneCv + "</div>" : "") +
+      (cvBtn ? '<div class="butoane" style="display:flex;flex-wrap:wrap;gap:12px">' + cvBtn + "</div>" : "") +
       "</div>" +
       (cifre ?
         '<div class="panou-verde"><img class="trifoi" src="imagini/logo/semn-auriu.png" alt="" width="64" height="95">' +
