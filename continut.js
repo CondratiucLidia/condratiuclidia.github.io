@@ -211,7 +211,6 @@ window.PROIECTE = [
     locatie: { ro: "", ru: "" },
     rol: { ro: "Concept interior, randări", ru: "Концепция интерьера, рендеры" },
     coperta: "01.jpg",
-    poze: 4,
   },
 
   {
@@ -229,7 +228,6 @@ window.PROIECTE = [
     locatie: { ro: "", ru: "" },
     rol: { ro: "Proiectarea mobilierului, randări, desen tehnic", ru: "Проектирование мебели, рендеры, чертеж" },
     coperta: "01.jpg",
-    poze: 5,
   },
 
   {
@@ -247,7 +245,6 @@ window.PROIECTE = [
     locatie: { ro: "", ru: "" },
     rol: { ro: "Proiectarea mobilierului, randări", ru: "Проектирование мебели, рендеры" },
     coperta: "01.jpg",
-    poze: 5,
   },
 
   {
@@ -287,6 +284,5 @@ window.PROIECTE = [
     locatie: { ro: "", ru: "" },
     rol: { ro: "Proiectarea mobilierului, randări", ru: "Проектирование мебели, рендеры" },
     coperta: "01.jpg",
-    poze: 3,
   },
 ];
