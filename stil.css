@@ -222,7 +222,7 @@ button { font: inherit; color: inherit; }
 .proiect { padding: clamp(24px, 4vw, 48px) 0 clamp(48px, 8vw, 96px); }
 .inapoi { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; font-weight: 600; font-size: 15px; color: var(--text-2); }
 .inapoi:hover { color: var(--verde); }
-.proiect-cap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 5vw, 64px); align-items: end; margin: 18px 0 clamp(28px, 4vw, 44px); }
+.proiect-cap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 5vw, 64px); align-items: end; margin: 18px 0 clamp(14px, 2.5vw, 26px); }
 .proiect-cap h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(38px, 5.4vw, 66px); line-height: 1.02; margin: 0; }
 .proiect-cap .meta { font-size: 14px; margin-top: 16px; }
 .proiect-text p { margin: 0 0 14px; font-size: 16.5px; color: #3A352E; }
@@ -232,7 +232,7 @@ button { font: inherit; color: inherit; }
 
 .galerie { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(10px, 1.6vw, 18px); }
 .galerie .subtitlu {
-  grid-column: 1 / -1; margin: clamp(24px, 4vw, 44px) 0 4px;
+  grid-column: 1 / -1; margin: clamp(14px, 2.5vw, 28px) 0 4px;
   font-family: var(--serif); font-size: clamp(24px, 2.6vw, 32px); font-weight: 500;
   display: flex; align-items: center; gap: 16px;
 }
@@ -247,6 +247,7 @@ button { font: inherit; color: inherit; }
 .galerie .lata { grid-column: 1 / -1; }
 .galerie .lata img { aspect-ratio: auto; max-height: 86vh; object-fit: contain; background: transparent; }
 .galerie button.poza.lata { background: transparent; }
+.galerie .lata img.inalta { max-height: 60vh; }
 .galerie .lipsa {
   display: flex; align-items: center; justify-content: center; min-height: 160px; padding: 16px;
   border: 1px dashed var(--nuc); color: var(--nuc); font-size: 14px; text-align: center; border-radius: 2px;

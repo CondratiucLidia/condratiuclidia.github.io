@@ -146,6 +146,11 @@
   }
   function imgIncarcata(img) {
     var r = img.naturalWidth / img.naturalHeight;
+    if (img.closest(".lata")) {
+      // poză aproape pătrată sau înaltă pe toată lățimea → nu mai înaltă de 60% din ecran
+      if (r < 1.3) img.classList.add("inalta");
+      return;
+    }
     if (r < 1.55 || r > 2.1) img.classList.add("intreaga");
   }
 
@@ -391,7 +396,7 @@
   function leaga() {
     app.querySelectorAll("img[data-fisier]").forEach(function (img) {
       img.addEventListener("error", function () { imgEroare(img, "imagini/proiecte/" + img.getAttribute("data-fisier")); });
-      if (img.closest("button.poza") && !img.closest(".lata")) {
+      if (img.closest("button.poza")) {
         if (img.complete && img.naturalWidth) imgIncarcata(img);
         else img.addEventListener("load", function () { imgIncarcata(img); });
       }
