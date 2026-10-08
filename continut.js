@@ -25,7 +25,7 @@ window.SITE = {
     // Completează doar ce folosești (linkul întreg). Gol = nu apare.
     instagram: "",   // ex.: "https://www.instagram.com/numele_tau"
     telegram: "",    // ex.: "https://t.me/numele_tau"
-    whatsapp: "",    // ex.: "https://wa.me/37367180952"
+    whatsapp: "https://wa.me/37367180952",
     viber: "",       // ex.: "viber://chat?number=%2B37367180952"
     behance: "",     // ex.: "https://www.behance.net/numele_tau"
   },
