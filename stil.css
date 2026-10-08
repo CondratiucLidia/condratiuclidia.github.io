@@ -49,10 +49,10 @@ button { font: inherit; color: inherit; }
   transition: border-color .2s;
 }
 .antet.cu-linie { border-bottom-color: var(--linie); }
-.antet .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
+.antet .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 54px; }
 .sigla { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
-.sigla img { width: auto; height: 32px; flex-shrink: 0; }
-.sigla span { font-family: var(--serif); font-weight: 600; font-size: 23px; letter-spacing: 0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sigla img { width: auto; height: 27px; flex-shrink: 0; }
+.sigla span { font-family: var(--serif); font-weight: 600; font-size: 21px; letter-spacing: 0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .meniu { display: flex; align-items: center; gap: 28px; }
 .meniu a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--text-2); padding: 6px 0; }
 .meniu a:hover { color: var(--verde); }
@@ -66,8 +66,8 @@ button { font: inherit; color: inherit; }
 .buton-meniu { display: none; }
 
 @media (max-width: 760px) {
-  .antet .container { height: 60px; }
-  .sigla img { height: 28px; }
+  .antet .container { height: 50px; }
+  .sigla img { height: 24px; }
   .sigla span { font-size: 20px; }
   .buton-meniu {
     display: inline-flex; align-items: center; justify-content: center;
@@ -75,7 +75,7 @@ button { font: inherit; color: inherit; }
     background: transparent; cursor: pointer;
   }
   .meniu {
-    display: none; position: absolute; top: 60px; left: 0; right: 0;
+    display: none; position: absolute; top: 50px; left: 0; right: 0;
     flex-direction: column; align-items: stretch; gap: 0;
     background: var(--crem); border-bottom: 1px solid var(--linie);
     padding: 8px var(--gutter) 18px;
