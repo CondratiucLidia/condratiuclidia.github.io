@@ -110,7 +110,7 @@ button { font: inherit; color: inherit; }
 .buton.contur:hover { background: var(--verde); color: var(--crem); }
 
 /* ---------- Prima pagină: deschidere ---------- */
-.erou { padding: clamp(28px, 6vw, 72px) 0 clamp(40px, 7vw, 96px); }
+.erou { padding: clamp(14px, 3vw, 32px) 0 clamp(32px, 5vw, 64px); }
 .erou .container { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
 .erou h1 {
   font-family: var(--serif); font-weight: 500;
@@ -130,7 +130,7 @@ button { font: inherit; color: inherit; }
 }
 
 /* ---------- Proiecte ---------- */
-.proiecte { padding: clamp(48px, 8vw, 104px) 0; border-top: 1px solid var(--linie); }
+.proiecte { padding: clamp(36px, 6vw, 72px) 0; border-top: 1px solid var(--linie); }
 .cap-sectiune { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; }
 .cap-sectiune .supratitlu { margin-bottom: 12px; }
 .filtre { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -157,7 +157,7 @@ button { font: inherit; color: inherit; }
 .eticheta.realizat { background: var(--verde); color: var(--crem); }
 
 /* ---------- Cum lucrez ---------- */
-.proces { background: var(--nisip); padding: clamp(48px, 8vw, 96px) 0; }
+.proces { background: var(--nisip); padding: clamp(36px, 6vw, 72px) 0; }
 .proces .titlu-sectiune { margin: 12px 0 40px; }
 .pasi { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px; margin: 0; padding: 0; list-style: none; }
 .pasi li { border-top: 1px solid var(--auriu-inchis); padding-top: 18px; }
@@ -168,7 +168,7 @@ button { font: inherit; color: inherit; }
 @media (max-width: 520px) { .pasi { grid-template-columns: 1fr; gap: 22px; } }
 
 /* ---------- Despre ---------- */
-.despre { padding: clamp(48px, 8vw, 104px) 0; }
+.despre { padding: clamp(36px, 6vw, 72px) 0; }
 .despre .container { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
 .despre .titlu-sectiune { margin: 12px 0 24px; }
 .despre p { font-size: 17px; color: #3A352E; margin: 0 0 16px; }
@@ -189,7 +189,7 @@ button { font: inherit; color: inherit; }
 @media (max-width: 860px) { .despre .container { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- Contact ---------- */
-.contact { background: var(--verde); color: var(--crem); padding: clamp(56px, 9vw, 112px) 0 40px; }
+.contact { background: var(--verde); color: var(--crem); padding: clamp(40px, 7vw, 80px) 0 32px; }
 .contact .supratitlu { color: var(--auriu); }
 .contact .titlu-sectiune { margin: 12px 0 18px; color: var(--crem); }
 .contact .text { font-size: 18px; color: var(--pe-verde); max-width: 560px; margin: 0 0 36px; }
@@ -219,10 +219,10 @@ button { font: inherit; color: inherit; }
 .clover span { font-family: var(--serif); font-weight: 500; font-size: 15px; letter-spacing: 0.45em; color: var(--auriu); }
 
 /* ---------- Pagina unui proiect ---------- */
-.proiect { padding: clamp(24px, 4vw, 48px) 0 clamp(48px, 8vw, 96px); }
+.proiect { padding: 8px 0 clamp(40px, 6vw, 72px); }
 .inapoi { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; font-weight: 600; font-size: 15px; color: var(--text-2); }
 .inapoi:hover { color: var(--verde); }
-.proiect-cap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 5vw, 64px); align-items: end; margin: 18px 0 clamp(14px, 2.5vw, 26px); }
+.proiect-cap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 5vw, 64px); align-items: end; margin: 6px 0 clamp(14px, 2.5vw, 26px); }
 .proiect-cap h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(38px, 5.4vw, 66px); line-height: 1.02; margin: 0; }
 .proiect-cap .meta { font-size: 14px; margin-top: 16px; }
 .proiect-text p { margin: 0 0 14px; font-size: 16.5px; color: #3A352E; }
@@ -253,7 +253,7 @@ button { font: inherit; color: inherit; }
 }
 @media (max-width: 600px) { .galerie { grid-template-columns: minmax(0, 1fr); } }
 
-.urmatorul { margin-top: clamp(48px, 7vw, 88px); padding-top: 28px; border-top: 1px solid var(--linie); }
+.urmatorul { margin-top: clamp(32px, 5vw, 56px); padding-top: 24px; border-top: 1px solid var(--linie); }
 .urmatorul a { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: center; text-decoration: none; }
 .urmatorul img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 2px; }
 .urmatorul .supratitlu { margin-bottom: 8px; }
