@@ -222,7 +222,7 @@ button { font: inherit; color: inherit; }
 .proiect { padding: 8px 0 clamp(40px, 6vw, 72px); }
 .inapoi { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; font-weight: 600; font-size: 15px; color: var(--text-2); }
 .inapoi:hover { color: var(--verde); }
-.proiect-cap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 5vw, 64px); align-items: end; margin: 6px 0 clamp(14px, 2.5vw, 26px); }
+.proiect-cap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 5vw, 64px); align-items: start; margin: 6px 0 clamp(14px, 2.5vw, 26px); }
 .proiect-cap h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(38px, 5.4vw, 66px); line-height: 1.02; margin: 0; }
 .proiect-cap .meta { font-size: 14px; margin-top: 16px; }
 .proiect-text p { margin: 0 0 14px; font-size: 16.5px; color: #3A352E; }
