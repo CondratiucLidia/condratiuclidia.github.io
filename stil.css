@@ -56,13 +56,32 @@ button { font: inherit; color: inherit; }
 .meniu { display: flex; align-items: center; gap: 28px; }
 .meniu a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--text-2); padding: 6px 0; }
 .meniu a:hover { color: var(--verde); }
-.limba { display: flex; border: 1px solid var(--linie); border-radius: 999px; padding: 3px; }
-.limba button {
-  border: 0; background: transparent; cursor: pointer;
-  font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
-  min-width: 40px; min-height: 32px; border-radius: 999px; color: var(--text-2);
+.antet-dreapta { display: flex; align-items: center; gap: 28px; }
+/* Limba: se vede doar cea aleasă; lista apare la mouse (sau la atingere pe telefon) */
+.limba { position: relative; }
+.limba-buton {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  min-height: 36px; padding: 0 12px 0 14px; border: 1px solid var(--linie); border-radius: 999px;
+  background: transparent; color: var(--verde); font-size: 13px; font-weight: 700; letter-spacing: 0.08em;
 }
-.limba button[aria-pressed="true"] { background: var(--verde); color: var(--crem); }
+.limba-buton svg { transition: transform .2s; }
+.limba-lista { display: none; position: absolute; top: 100%; right: 0; padding-top: 6px; z-index: 60; }
+.limba-lista > div {
+  display: flex; flex-direction: column; min-width: 64px; padding: 4px;
+  background: var(--crem); border: 1px solid var(--linie); border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(36, 33, 27, 0.1);
+}
+.limba-lista button {
+  border: 0; background: transparent; cursor: pointer; min-height: 36px; border-radius: 10px;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--text-2);
+}
+.limba-lista button:hover, .limba-lista button:focus-visible { background: var(--nisip); color: var(--verde); }
+.limba.deschis .limba-lista { display: block; }
+.limba.deschis .limba-buton svg { transform: rotate(180deg); }
+@media (hover: hover) {
+  .limba:hover .limba-lista { display: block; }
+  .limba:hover .limba-buton { border-color: var(--auriu-inchis); }
+}
 .buton-meniu { display: none; }
 
 @media (max-width: 760px) {
@@ -82,7 +101,9 @@ button { font: inherit; color: inherit; }
   }
   .meniu.deschis { display: flex; }
   .meniu a { font-size: 18px; padding: 12px 0; border-bottom: 1px solid var(--linie); }
-  .meniu .limba { align-self: flex-start; margin-top: 16px; }
+  .antet-dreapta { gap: 8px; }
+  .limba-buton { min-height: 44px; padding: 0 12px 0 14px; }
+  .limba-lista button { min-height: 44px; }
 }
 
 /* ---------- Elemente comune ---------- */
@@ -328,3 +349,18 @@ button { font: inherit; color: inherit; }
 .grup-contact .retele { margin-bottom: 0; }
 .eticheta-mica { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--auriu); margin-bottom: 10px; }
 .contact .subsol { margin-top: 44px; }
+
+/* ---------- Contact: logourile WhatsApp / Viber; numele apare la mouse ---------- */
+.retele.cu-iconite { gap: 12px; }
+.retele a.iconita {
+  position: relative; justify-content: center; width: 48px; height: 48px; min-height: 0; padding: 0;
+  color: var(--auriu);
+}
+.retele a.iconita svg { width: 22px; height: 22px; }
+.retele a.iconita::after {
+  content: attr(data-nume); position: absolute; bottom: calc(100% + 8px); left: 50%;
+  transform: translate(-50%, 4px); padding: 4px 10px; border-radius: 6px; white-space: nowrap;
+  background: var(--crem); color: var(--verde); font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+  opacity: 0; pointer-events: none; transition: opacity .15s, transform .15s;
+}
+.retele a.iconita:hover::after, .retele a.iconita:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }

@@ -36,7 +36,7 @@
   var UI = {
     ro: {
       proiecte: "Proiecte", despre: "Despre mine", contact: "Contact", meniu: "Meniu",
-      lucrari: "Lucrări selectate", toate: "Toate", vezi: "Vezi proiectele", descarcaCv: "Deschide CV", scrieMi: "Scrie-mi pe", cvTitlu: "CV",
+      lucrari: "Lucrări selectate", toate: "Toate", vezi: "Vezi proiectele", descarcaCv: "Deschide CV", scrieMi: "Scrie-mi", cvTitlu: "CV",
       cumLucrez: "Cum lucrez", procesSupra: "De la idee la producție",
       despreSupra: "Designer de interior și mobilier", programe: "Programe", limbi: "Limbi",
       cvRo: "CV în română (PDF)", cvRu: "CV în rusă (PDF)",
@@ -48,7 +48,7 @@
     },
     ru: {
       proiecte: "Проекты", despre: "Обо мне", contact: "Контакты", meniu: "Меню",
-      lucrari: "Избранные работы", toate: "Все", vezi: "Смотреть проекты", descarcaCv: "Открыть резюме", scrieMi: "Напишите мне в", cvTitlu: "Резюме",
+      lucrari: "Избранные работы", toate: "Все", vezi: "Смотреть проекты", descarcaCv: "Открыть резюме", scrieMi: "Напишите мне", cvTitlu: "Резюме",
       cumLucrez: "Как я работаю", procesSupra: "От идеи до производства",
       despreSupra: "Дизайнер интерьеров и мебели", programe: "Программы", limbi: "Языки",
       cvRo: "Резюме на румынском (PDF)", cvRu: "Резюме на русском (PDF)", cvEn: "Резюме на английском (PDF)",
@@ -60,7 +60,7 @@
     },
     en: {
       proiecte: "Projects", despre: "About me", contact: "Contact", meniu: "Menu",
-      lucrari: "Selected work", toate: "All", vezi: "View projects", descarcaCv: "Open CV", scrieMi: "Message me on", cvTitlu: "CV",
+      lucrari: "Selected work", toate: "All", vezi: "View projects", descarcaCv: "Open CV", scrieMi: "Message me", cvTitlu: "CV",
       cumLucrez: "How I work", procesSupra: "From idea to production",
       despreSupra: "Interior and furniture designer", programe: "Software", limbi: "Languages",
       cvRo: "CV in Romanian (PDF)", cvRu: "CV in Russian (PDF)", cvEn: "CV in English (PDF)",
@@ -73,6 +73,15 @@
   };
   UI.ro.cvEn = "CV în engleză (PDF)";
   var LIMBI = ["ro", "ru", "en"];
+  var NUME_LIMBA = { ro: "Română", ru: "Русский", en: "English" };
+  // Logourile rețelelor (Simple Icons, licență CC0 — liber de folosit)
+  var ICONITE = {
+    whatsapp: "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z",
+    viber: "M11.4 0C9.473.028 5.333.344 3.02 2.467 1.302 4.187.696 6.7.633 9.817.57 12.933.488 18.776 6.12 20.36h.003l-.004 2.416s-.037.977.61 1.177c.777.242 1.234-.5 1.98-1.302.407-.44.972-1.084 1.397-1.58 3.85.326 6.812-.416 7.15-.525.776-.252 5.176-.816 5.892-6.657.74-6.02-.36-9.83-2.34-11.546-.596-.55-3.006-2.3-8.375-2.323 0 0-.395-.025-1.037-.017zm.058 1.693c.545-.004.88.017.88.017 4.542.02 6.717 1.388 7.222 1.846 1.675 1.435 2.53 4.868 1.906 9.897v.002c-.604 4.878-4.174 5.184-4.832 5.395-.28.09-2.882.737-6.153.524 0 0-2.436 2.94-3.197 3.704-.12.12-.26.167-.352.144-.13-.033-.166-.188-.165-.414l.02-4.018c-4.762-1.32-4.485-6.292-4.43-8.895.054-2.604.543-4.738 1.996-6.173 1.96-1.773 5.474-2.018 7.11-2.03zm.38 2.602c-.167 0-.303.135-.304.302 0 .167.133.303.3.305 1.624.01 2.946.537 4.028 1.592 1.073 1.046 1.62 2.468 1.633 4.334.002.167.14.3.307.3.166-.002.3-.138.3-.304-.014-1.984-.618-3.596-1.816-4.764-1.19-1.16-2.692-1.753-4.447-1.765zm-3.96.695c-.19-.032-.4.005-.616.117l-.01.002c-.43.247-.816.562-1.146.932-.002.004-.006.004-.008.008-.267.323-.42.638-.46.948-.008.046-.01.093-.007.14 0 .136.022.27.065.4l.013.01c.135.48.473 1.276 1.205 2.604.42.768.903 1.5 1.446 2.186.27.344.56.673.87.984l.132.132c.31.308.64.6.984.87.686.543 1.418 1.027 2.186 1.447 1.328.733 2.126 1.07 2.604 1.206l.01.014c.13.042.265.064.402.063.046.002.092 0 .138-.008.31-.036.627-.19.948-.46.004 0 .003-.002.008-.005.37-.33.683-.72.93-1.148l.003-.01c.225-.432.15-.842-.18-1.12-.004 0-.698-.58-1.037-.83-.36-.255-.73-.492-1.113-.71-.51-.285-1.032-.106-1.248.174l-.447.564c-.23.283-.657.246-.657.246-3.12-.796-3.955-3.955-3.955-3.955s-.037-.426.248-.656l.563-.448c.277-.215.456-.737.17-1.248-.217-.383-.454-.756-.71-1.115-.25-.34-.826-1.033-.83-1.035-.137-.165-.31-.265-.502-.297zm4.49.88c-.158.002-.29.124-.3.282-.01.167.115.312.282.324 1.16.085 2.017.466 2.645 1.15.63.688.93 1.524.906 2.57-.002.168.13.306.3.31.166.003.305-.13.31-.297.025-1.175-.334-2.193-1.067-2.994-.74-.81-1.777-1.253-3.05-1.346h-.024zm.463 1.63c-.16.002-.29.127-.3.287-.008.167.12.31.288.32.523.028.875.175 1.113.422.24.245.388.62.416 1.164.01.167.15.295.318.287.167-.008.295-.15.287-.317-.03-.644-.215-1.178-.58-1.557-.367-.378-.893-.574-1.52-.607h-.018z",
+    telegram: "M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z",
+    instagram: "M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077",
+    behance: "M16.969 16.927a2.561 2.561 0 0 0 1.901.677 2.501 2.501 0 0 0 1.531-.475c.362-.235.636-.584.779-.99h2.585a5.091 5.091 0 0 1-1.9 2.896 5.292 5.292 0 0 1-3.091.88 5.839 5.839 0 0 1-2.284-.433 4.871 4.871 0 0 1-1.723-1.211 5.657 5.657 0 0 1-1.08-1.874 7.057 7.057 0 0 1-.383-2.393c-.005-.8.129-1.595.396-2.349a5.313 5.313 0 0 1 5.088-3.604 4.87 4.87 0 0 1 2.376.563c.661.362 1.231.87 1.668 1.485a6.2 6.2 0 0 1 .943 2.133c.194.821.263 1.666.205 2.508h-7.699c-.063.79.184 1.574.688 2.187ZM6.947 4.084a8.065 8.065 0 0 1 1.928.198 4.29 4.29 0 0 1 1.49.638c.418.303.748.711.958 1.182.241.579.357 1.203.341 1.83a3.506 3.506 0 0 1-.506 1.961 3.726 3.726 0 0 1-1.503 1.287 3.588 3.588 0 0 1 2.027 1.437c.464.747.697 1.615.67 2.494a4.593 4.593 0 0 1-.423 2.032 3.945 3.945 0 0 1-1.163 1.413 5.114 5.114 0 0 1-1.683.807 7.135 7.135 0 0 1-1.928.259H0V4.084h6.947Zm-.235 12.9c.308.004.616-.029.916-.099a2.18 2.18 0 0 0 .766-.332c.228-.158.411-.371.534-.619.142-.317.208-.663.191-1.009a2.08 2.08 0 0 0-.642-1.715 2.618 2.618 0 0 0-1.696-.505h-3.54v4.279h3.471Zm13.635-5.967a2.13 2.13 0 0 0-1.654-.619 2.336 2.336 0 0 0-1.163.259 2.474 2.474 0 0 0-.738.62 2.359 2.359 0 0 0-.396.792c-.074.239-.12.485-.137.734h4.769a3.239 3.239 0 0 0-.679-1.785l-.002-.001Zm-13.813-.648a2.254 2.254 0 0 0 1.423-.433c.399-.355.607-.88.56-1.413a1.916 1.916 0 0 0-.178-.891 1.298 1.298 0 0 0-.495-.533 1.851 1.851 0 0 0-.711-.274 3.966 3.966 0 0 0-.835-.073H3.241v3.631h3.293v-.014ZM21.62 5.122h-5.976v1.527h5.976V5.122Z",
+  };
 
   var local = location.protocol === "file:";
   var lang = alegeLimba();
@@ -173,19 +182,27 @@
     var nav =
       '<a href="#proiecte">' + esc(u("proiecte")) + "</a>" +
       '<a href="#despre">' + esc(u("despre")) + "</a>" +
-      '<a href="#contact">' + esc(u("contact")) + "</a>" +
-      '<div class="limba" role="group" aria-label="Limba / Язык / Language">' +
-      LIMBI.map(function (l) {
-        return '<button type="button" data-limba="' + l + '" aria-pressed="' + (lang === l) + '">' + l.toUpperCase() + "</button>";
-      }).join("") + "</div>";
+      '<a href="#contact">' + esc(u("contact")) + "</a>";
+    // Limba: se vede doar cea aleasă; celelalte apar când duci mouse-ul pe ea (pe telefon — la atingere).
+    var limba =
+      '<div class="limba" id="limba">' +
+      '<button type="button" class="limba-buton" aria-haspopup="true" aria-expanded="false" aria-controls="limba-lista" ' +
+      'aria-label="Limba / Язык / Language: ' + esc(NUME_LIMBA[lang]) + '">' + lang.toUpperCase() +
+      '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg></button>' +
+      '<div class="limba-lista" id="limba-lista"><div>' +
+      LIMBI.filter(function (l) { return l !== lang; }).map(function (l) {
+        return '<button type="button" data-limba="' + l + '" lang="' + l + '" title="' + esc(NUME_LIMBA[l]) + '">' + l.toUpperCase() + "</button>";
+      }).join("") + "</div></div></div>";
     return (
       '<a class="ascuns-vizual" href="#continut">' + esc(u("sari")) + "</a>" +
       '<header class="antet" id="antet"><div class="container">' +
       '<a class="sigla" href="#"><img src="imagini/logo/semn-verde.png" alt="" width="22" height="32"><span>' + esc(t(S.nume)) + "</span></a>" +
+      '<div class="antet-dreapta">' +
+      '<nav class="meniu" id="meniu" aria-label="' + esc(u("meniu")) + '">' + nav + "</nav>" +
+      limba +
       '<button type="button" class="buton-meniu" aria-expanded="false" aria-controls="meniu" aria-label="' + esc(u("meniu")) + '">' +
       '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg></button>' +
-      '<nav class="meniu" id="meniu" aria-label="' + esc(u("meniu")) + '">' + nav + "</nav>" +
-      "</div></header>"
+      "</div></div></header>"
     );
   }
 
@@ -195,9 +212,12 @@
     if (c.email) linii += '<a href="mailto:' + esc(c.email) + '">' + esc(c.email) + "</a>";
     if (c.telefon) linii += '<a href="tel:' + esc(c.telefon.replace(/[^\d+]/g, "")) + '">' + esc(c.telefon) + "</a>";
     var retele = "";
-    [["telegram", "Telegram"], ["whatsapp", "WhatsApp"], ["viber", "Viber"], ["instagram", "Instagram"], ["behance", "Behance"]]
+    // Doar logoul; numele apare deasupra când duci mouse-ul pe el.
+    [["whatsapp", "WhatsApp"], ["viber", "Viber"], ["telegram", "Telegram"], ["instagram", "Instagram"], ["behance", "Behance"]]
       .forEach(function (r) {
-        if (c[r[0]]) retele += '<a href="' + esc(c[r[0]]) + '" target="_blank" rel="noopener">' + r[1] + "</a>";
+        if (!c[r[0]]) return;
+        retele += '<a class="iconita" href="' + esc(c[r[0]]) + '" target="_blank" rel="noopener" aria-label="' + r[1] + '" data-nume="' + r[1] + '">' +
+          '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="' + ICONITE[r[0]] + '"/></svg></a>';
       });
     var cv = butoaneCv("contur", "contur");
     var clover = S.arataClover === false ? "" :
@@ -208,7 +228,7 @@
       '<h2 class="titlu-sectiune">' + esc(u("contact")) + "</h2>" +
       (t(S.texte.contactText) ? '<p class="text">' + esc(t(S.texte.contactText)) + "</p>" : "") +
       '<div class="contact-linii">' + linii + "</div>" +
-      (retele ? '<div class="grup-contact"><div class="eticheta-mica">' + esc(u("scrieMi")) + '</div><div class="retele">' + retele + "</div></div>" : "") +
+      (retele ? '<div class="grup-contact"><div class="eticheta-mica">' + esc(u("scrieMi")) + '</div><div class="retele cu-iconite">' + retele + "</div></div>" : "") +
       (cv ? '<div class="grup-contact"><div class="eticheta-mica">' + esc(u("cvTitlu")) + '</div><div class="retele">' + cv + "</div></div>" : "") +
       '<div class="subsol"><div>© ' + new Date().getFullYear() + " " + esc(t(S.nume)) + " · " + esc(t(S.oras)) + "</div>" + clover + "</div>" +
       "</div></section>"
@@ -296,8 +316,13 @@
     var paragrafe = [].concat(S.texte.despre && (S.texte.despre[lang] || S.texte.despre.ro) || [])
       .map(function (x) { return "<p>" + esc(x) + "</p>"; }).join("");
     var fise = "";
-    if (t(S.texte.programe)) fise += "<div><dt>" + esc(u("programe")) + "</dt><dd>" + esc(t(S.texte.programe)) + "</dd></div>";
-    if (t(S.texte.limbi)) fise += "<div><dt>" + esc(u("limbi")) + "</dt><dd>" + esc(t(S.texte.limbi)) + "</dd></div>";
+    // Un text poate fi și o listă ["rândul 1", "rândul 2"] — fiecare element pe rând nou.
+    function randuri(v) {
+      var x = v && typeof v === "object" && !Array.isArray(v) ? (v[lang] || v.ro) : v;
+      return [].concat(x || []).filter(Boolean).map(esc).join("<br>");
+    }
+    if (randuri(S.texte.programe)) fise += "<div><dt>" + esc(u("programe")) + "</dt><dd>" + randuri(S.texte.programe) + "</dd></div>";
+    if (randuri(S.texte.limbi)) fise += "<div><dt>" + esc(u("limbi")) + "</dt><dd>" + randuri(S.texte.limbi) + "</dd></div>";
     var cvBtn = butoaneCv("", "contur");
     var cifre = (S.texte.cifre || []).map(function (c) {
       return "<div><dt>" + esc(c.numar) + "</dt><dd>" + esc(t(c.text)) + "</dd></div>";
@@ -422,11 +447,18 @@
       });
     });
 
+    var lb = app.querySelector(".limba-buton");
+    lb.addEventListener("click", function () {
+      var d = document.getElementById("limba").classList.toggle("deschis");
+      lb.setAttribute("aria-expanded", d);
+    });
+
     var bm = app.querySelector(".buton-meniu");
     var meniu = document.getElementById("meniu");
     bm.addEventListener("click", function () {
       var d = meniu.classList.toggle("deschis");
       bm.setAttribute("aria-expanded", d);
+      inchideLimba();
     });
     meniu.querySelectorAll("a").forEach(function (a) {
       a.addEventListener("click", function () { meniu.classList.remove("deschis"); bm.setAttribute("aria-expanded", "false"); });
@@ -482,7 +514,17 @@
     lumina.i = (lumina.i + d + n) % n;
     arataPoza();
   }
+  function inchideLimba() {
+    var l = document.getElementById("limba");
+    if (!l || !l.classList.contains("deschis")) return;
+    l.classList.remove("deschis");
+    l.querySelector(".limba-buton").setAttribute("aria-expanded", "false");
+  }
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest || !e.target.closest("#limba")) inchideLimba();
+  });
   document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") inchideLimba();
     var L = document.getElementById("lumina");
     if (!L || !L.classList.contains("deschis")) return;
     if (e.key === "Escape") inchideLumina();

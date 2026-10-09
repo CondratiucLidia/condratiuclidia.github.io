@@ -59,7 +59,7 @@ window.SITE = {
                  ru: "Предлагаю планировку, стиль, материалы и освещение.",
                  en: "I propose the layout, the style, the materials and the lighting." } },
       { titlu: { ro: "Proiectarea mobilierului", ru: "Проектирование мебели", en: "Furniture design" },
-        text:  { ro: "Fiecare corp e gândit la centimetru: dimensiuni, umplutură interioară, fațade, iluminare.",
+        text:  { ro: "Fiecare corp e gândit până la centimetru: dimensiuni, organizare interioară, fațade, iluminare.",
                  ru: "Каждый модуль продуман до сантиметра: размеры, внутреннее наполнение, фасады, подсветка.",
                  en: "Every cabinet is thought through to the centimetre: dimensions, interior fittings, fronts, lighting." } },
       { titlu: { ro: "Randări 3D", ru: "3D-визуализация", en: "3D renderings" },
@@ -86,7 +86,7 @@ window.SITE = {
       ],
       en: [
         "I am a furniture and interior designer with about 3 years of experience. I carry out custom furniture projects, from on-site measurements to visualisation.",
-        "I was part of the development team of an interior and furniture design software: I created over 200 parametric modules for its library in SketchUp Dynamic Components. I was responsible for testing and gave presentations of the software to clients in Moldova, Uzbekistan, Kazakhstan and Georgia.",
+        "I was part of the team that developed interior and furniture design software: I created over 200 parametric modules for its library in SketchUp Dynamic Components. I was responsible for testing and gave presentations of the software to clients in Moldova, Uzbekistan, Kazakhstan and Georgia.",
         "I don't work from templates and I don't chase trends. I try to understand the person I am designing for: how they live, what they truly like, even if it isn't fashionable or to everyone's taste. When they don't yet know what they want, we find out together, with patience and a little psychology. For me, a home is not four walls. It is the place where you truly feel at home, where you want to return in the evening, and that makes your life easier.",
       ],
     },
@@ -99,10 +99,11 @@ window.SITE = {
       { numar: "22", text: { ro: "lecții video — structură și scenarii", ru: "видеоурока — структура и сценарии", en: "video lessons — structure and scripts" } },
     ],
 
+    // Fiecare text dintre ghilimele = un rând separat pe site.
     programe: {
-      ro: "SketchUp (Dynamic Components), Enscape, LayOut. Nivel de bază: AutoCAD, 3ds Max, Photoshop.",
-      ru: "SketchUp (Dynamic Components), Enscape, LayOut. Базовый уровень: AutoCAD, 3ds Max, Photoshop.",
-      en: "SketchUp (Dynamic Components), Enscape, LayOut. Basic level: AutoCAD, 3ds Max, Photoshop.",
+      ro: ["SketchUp (Dynamic Components), Enscape, LayOut", "Nivel de bază: AutoCAD, 3ds Max, Photoshop"],
+      ru: ["SketchUp (Dynamic Components), Enscape, LayOut", "Базовый уровень: AutoCAD, 3ds Max, Photoshop"],
+      en: ["SketchUp (Dynamic Components), Enscape, LayOut", "Basic level: AutoCAD, 3ds Max, Photoshop"],
     },
     limbi: { ro: "Română (maternă), rusă (fluent)", ru: "Румынский (родной), русский (свободно)", en: "Romanian (native), Russian (fluent)" },
 
@@ -149,7 +150,7 @@ window.PROIECTE = [
     titlu: { ro: "Concept de apartament pentru o expoziție în Dubai", ru: "Концепция квартиры для выставки в Дубае", en: "Apartment concept for an exhibition in Dubai" },
     scurt: { ro: "Bucătărie, living și dormitor în două direcții stilistice", ru: "Кухня, гостиная и спальня в двух стилистических направлениях", en: "Kitchen, living room and bedroom in two stylistic directions" },
     descriere: {
-      ro: "Un apartament de expoziție gândit de la zero: bucătărie, living și dormitor, în două direcții stilistice pentru două feluri de a trăi. Prima e caldă și densă: cărămidă, lemn masiv cu margini vii, metal negru și lumină punctuală. A doua e aerată: tonuri deschise, lamele de lemn și lumină difuză. Aceleași încăperi, două caractere, ca vizitatorul să se recunoască într-una din ele. Panoramele 360° și turul VR le-am realizat împreună cu echipa.",
+      ro: "Un apartament de expoziție gândit de la zero: bucătărie, living și dormitor, în două direcții stilistice pentru două feluri de a trăi. Prima e caldă și densă: cărămidă, lemn masiv cu margini vii, metal negru și lumină punctuală. A doua e aerată: tonuri deschise, lamele de lemn și lumină difuză. Aceleași încăperi, două caractere, ca vizitatorul să se recunoască într-una dintre ele. Panoramele 360° și turul VR le-am realizat împreună cu echipa.",
       ru: "Выставочная квартира, продуманная с нуля: кухня, гостиная и спальня в двух стилистических направлениях — для двух разных образов жизни. Первое — теплое и насыщенное: кирпич, массив дерева с живым краем, черный металл и точечный свет. Второе — воздушное: светлые тона, деревянные рейки и мягкий рассеянный свет. Одни и те же комнаты, два характера, чтобы посетитель узнал себя в одном из них. Панорамы 360° и VR-тур создавала вместе с командой.",
       en: "An exhibition apartment designed from scratch: kitchen, living room and bedroom in two stylistic directions, for two ways of living. The first is warm and dense: brick, solid wood with live edges, black metal and focused light. The second is airy: light tones, wooden slats and diffused light. The same rooms, two characters, so that visitors recognise themselves in one of them. The 360° panoramas and the VR tour were made together with the team.",
     },
@@ -201,7 +202,7 @@ window.PROIECTE = [
     titlu: { ro: "Bucătărie cu vitrine metalice și zonă de zi", ru: "Кухня с металлическими витринами и зоной отдыха", en: "Kitchen with metal-framed display cabinets and living area" },
     scurt: { ro: "Lemn întunecat, marmură și sticlă cu profil negru", ru: "Темное дерево, мрамор и стекло в черном профиле", en: "Dark wood, marble and glass in a black frame" },
     descriere: {
-      ro: "O bucătărie în culori adânci pentru oameni cărora le place să primească oaspeți seara. Corpurile de jos sunt grafit cald, cele de sus au o textură de lemn întunecat, iar șorțul e marmură cu vene aurii. Coloanele înalte țin frigiderul side-by-side, cuptorul și microundele, iar vitrina de sticlă cu profil metalic negru și lumină interioară pune pe scenă paharele și vinul. Am gândit și o a doua variantă, cu nuc și marmură albă, pentru cine vrea aceeași bucătărie, dar mai luminoasă. Zona de zi continuă cu masa de sufragerie și canapelele, între stâlpii care îi dau ritm.",
+      ro: "O bucătărie în culori adânci pentru oameni cărora le place să primească oaspeți seara. Corpurile de jos sunt grafit cald, cele de sus au o textură de lemn întunecat, iar șorțul e marmură cu vene aurii. Coloanele înalte țin frigiderul side-by-side, cuptorul și microundele, iar vitrina de sticlă cu profil metalic negru și lumină interioară pune în valoare paharele și vinul. Am gândit și o a doua variantă, cu nuc și marmură albă, pentru cine vrea aceeași bucătărie, dar mai luminoasă. Zona de zi continuă cu masa de sufragerie și canapelele, între stâlpii care îi dau ritm.",
       ru: "Кухня в глубоких тонах для тех, кто любит принимать гостей по вечерам. Нижние модули — теплый графит, верхние — с текстурой темного дерева, фартук — мрамор с золотыми прожилками. Высокие колонны вмещают холодильник side-by-side, духовку и микроволновку, а стеклянная витрина в черном металлическом профиле с внутренней подсветкой выставляет напоказ бокалы и вино. Продумала и второй вариант — орех и белый мрамор — для тех, кто хочет ту же кухню, но светлее. Зона отдыха продолжается обеденным столом и диванами между колоннами, задающими ритм.",
       en: "A kitchen in deep colours for people who love hosting in the evening. The base units are warm graphite, the wall units have a dark wood texture, and the splashback is marble with golden veins. The tall columns house the side-by-side fridge, the oven and the microwave, while the glass cabinet with a black metal frame and interior lighting puts the glasses and wine on show. I also designed a second version, in walnut and white marble, for those who want the same kitchen but brighter. The living area continues with the dining table and the sofas, between the pillars that give it rhythm.",
     },
@@ -280,7 +281,7 @@ window.PROIECTE = [
     titlu: { ro: "Bucătărie albă în colț", ru: "Белая угловая кухня", en: "White corner kitchen" },
     scurt: { ro: "Alb, blat negru subțire, lumină naturală", ru: "Белый, тонкая черная столешница, естественный свет", en: "White, a slim black worktop, natural light" },
     descriere: {
-      ro: "O bucătărie în L, albă de sus până jos, cu un singur accent: blatul negru, subțire, și tehnica neagră. Șorțul de marmură albă cu vene fine și vitrina de sticlă de la fereastră țin albul viu, nu steril. Fațadele fără mânere, cu profil negru, fac corpurile să pară un singur volum. Planul și elevația cu cote (4,08 × 3,43 m) fac parte din proiect, pentru ca producția să nu lase loc de interpretări.",
+      ro: "O bucătărie în L, albă de sus până jos, cu un singur accent: blatul negru, subțire, și electrocasnicele negre. Șorțul de marmură albă cu vene fine și vitrina de sticlă de la fereastră țin albul viu, nu steril. Fațadele fără mânere, cu profil negru, fac corpurile să pară un singur volum. Planul și elevația cu cote (4,08 × 3,43 m) fac parte din proiect, ca la producție să nu rămână loc de interpretări.",
       ru: "Угловая кухня, белая сверху донизу, с одним акцентом: тонкой черной столешницей и черной техникой. Фартук из белого мрамора с тонкими прожилками и стеклянная витрина у окна делают белый живым, а не стерильным. Фасады без ручек, с черным профилем, собирают модули в единый объем. План и развертка с размерами (4,08 × 3,43 м) входят в проект, чтобы производство не оставляло места для догадок.",
       en: "An L-shaped kitchen, white from top to bottom, with a single accent: the slim black worktop and the black appliances. The white marble splashback with fine veins and the glass cabinet by the window keep the white alive, not sterile. Handleless fronts with a black profile make the cabinets read as one volume. The dimensioned plan and elevation (4.08 × 3.43 m) are part of the project, so that production leaves no room for interpretation.",
     },
@@ -303,7 +304,7 @@ window.PROIECTE = [
     titlu: { ro: "Bucătărie liniară grafit", ru: "Линейная кухня цвета графит", en: "Linear graphite kitchen" },
     scurt: { ro: "Grafit între doi pereți, marmură gri", ru: "Графит между двумя стенами, серый мрамор", en: "Graphite between two walls, grey marble" },
     descriere: {
-      ro: "O nișă între doi pereți transformată în bucătărie completă. Fațadele grafit mat, frigiderul inox și cuptorul negru stau pe o singură linie, iar șorțul de marmură gri și lumina de sub corpuri o deschid. Masa mică albă cu scaune pudrate aduce un ton blând într-un spațiu sobru. În interior totul e alb și ordonat: sertare, mașină de spălat vase, locuri gândite pentru fiecare lucru.",
+      ro: "O nișă între doi pereți transformată în bucătărie completă. Fațadele grafit mat, frigiderul inox și cuptorul negru stau pe o singură linie, iar șorțul de marmură gri și lumina de sub corpuri o deschid. Masa mică albă cu scaune roz-pudrat aduce un ton blând într-un spațiu sobru. În interior totul e alb și ordonat: sertare, mașină de spălat vase, locuri gândite pentru fiecare lucru.",
       ru: "Ниша между двумя стенами, превращенная в полноценную кухню. Матовые графитовые фасады, холодильник из нержавейки и черная духовка стоят в одну линию, а фартук из серого мрамора и подсветка под шкафами раскрывают пространство. Небольшой белый стол с пудровыми стульями добавляет мягкости строгому интерьеру. Внутри все белое и упорядоченное: ящики, посудомоечная машина, продуманное место для каждой вещи.",
       en: "A niche between two walls turned into a complete kitchen. The matte graphite fronts, the stainless-steel fridge and the black oven sit on a single line, while the grey marble splashback and the light beneath the wall units open it up. The small white table with powder-pink chairs adds a soft note to a sober space. Inside, everything is white and orderly: drawers, a dishwasher, a thought-out place for everything.",
     },
