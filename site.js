@@ -37,7 +37,7 @@
     ro: {
       proiecte: "Proiecte", despre: "Despre mine", contact: "Contact", meniu: "Meniu",
       lucrari: "Interioare și mobilier", toate: "Toate", vezi: "Vezi proiectele", descarcaCv: "Deschide CV", scrieMi: "Scrie-mi", cvTitlu: "CV",
-      cumLucrez: "Cum lucrez", procesSupra: "De la idee la producție",
+      cumLucrez: "Cum lucrez", procesSupra: "De la idee la proiect",
       despreSupra: "Designer de interior și mobilier", programe: "Programe", limbi: "Limbi",
       cvRo: "CV în română (PDF)", cvRu: "CV în rusă (PDF)",
       contactSupra: "Hai să vorbim", inapoi: "Toate proiectele", urmatorul: "Proiectul următor",
@@ -49,7 +49,7 @@
     ru: {
       proiecte: "Проекты", despre: "Обо мне", contact: "Контакты", meniu: "Меню",
       lucrari: "Интерьеры и мебель", toate: "Все", vezi: "Смотреть проекты", descarcaCv: "Открыть резюме", scrieMi: "Напишите мне", cvTitlu: "Резюме",
-      cumLucrez: "Как я работаю", procesSupra: "От идеи до производства",
+      cumLucrez: "Как я работаю", procesSupra: "От идеи до проекта",
       despreSupra: "Дизайнер интерьеров и мебели", programe: "Программы", limbi: "Языки",
       cvRo: "Резюме на румынском (PDF)", cvRu: "Резюме на русском (PDF)", cvEn: "Резюме на английском (PDF)",
       contactSupra: "Давайте обсудим", inapoi: "Все проекты", urmatorul: "Следующий проект",
@@ -61,7 +61,7 @@
     en: {
       proiecte: "Projects", despre: "About me", contact: "Contact", meniu: "Menu",
       lucrari: "Interiors and furniture", toate: "All", vezi: "View projects", descarcaCv: "Open CV", scrieMi: "Message me", cvTitlu: "CV",
-      cumLucrez: "How I work", procesSupra: "From idea to production",
+      cumLucrez: "How I work", procesSupra: "From idea to project",
       despreSupra: "Interior and furniture designer", programe: "Software", limbi: "Languages",
       cvRo: "CV in Romanian (PDF)", cvRu: "CV in Russian (PDF)", cvEn: "CV in English (PDF)",
       contactSupra: "Let's talk", inapoi: "All projects", urmatorul: "Next project",
