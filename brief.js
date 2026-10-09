@@ -20,7 +20,7 @@
 window.BRIEF = {
   // false = briefingul NU apare pe site (doar cine are linkul #/brief îl vede).
   // true  = apare butonul „Completează briefingul” la Contact și la „Cum lucrez”.
-  arata: false,
+  arata: true,
 
   texte: {
     supratitlu: "Primul pas | Первый шаг | The first step",
@@ -93,10 +93,10 @@ window.BRIEF = {
         { id: "suprafata", tip: "text", eticheta: "Suprafața aproximativă, m² | Примерная площадь, м² | Approximate area, m²" },
         { id: "tavan", tip: "text", eticheta: "Înălțimea tavanului, dacă o știți | Высота потолка, если знаете | Ceiling height, if you know it" },
         { id: "plan", tip: "unul", obligatoriu: true, eticheta: "Măsurătorile | Замеры | Measurements",
-          ajutor: "Pentru un proiect corect am nevoie de toate dimensiunile: fiecare perete, înălțimea, ferestrele și ușile, țevile, prizele și caloriferele. Dacă le măsurați dumneavoastră, proiectul se face exact după ele, iar pentru greșeli sau dimensiuni lipsă nu pot răspunde. | Для точного проекта мне нужны все размеры: каждая стена, высота, окна и двери, трубы, розетки и батареи. Если замеры делаете вы, проект выполняется строго по ним, и за ошибки или недостающие размеры я не отвечаю. | For an accurate project I need every dimension: each wall, the height, windows and doors, pipes, sockets and radiators. If you measure yourself, the project follows your measurements exactly, and I cannot be responsible for errors or missing dimensions.",
+          ajutor: "Pentru un proiect precis am nevoie de toate dimensiunile spațiului: fiecare perete, înălțimea, ferestrele și ușile, țevile, prizele și caloriferele. Dacă măsurătorile sunt făcute de dumneavoastră, proiectul se realizează pe baza lor, iar responsabilitatea pentru exactitatea și completitudinea datelor vă revine. | Для точного проекта мне нужны все размеры помещения: каждая стена, высота, окна и двери, трубы, розетки и радиаторы. Если замеры выполняете вы, проект разрабатывается на их основе, и ответственность за точность и полноту данных лежит на вас. | For an accurate project I need every dimension of the space: each wall, the height, windows and doors, pipes, sockets and radiators. If you take the measurements yourself, the project is based on them, and you are responsible for the accuracy and completeness of the data.",
           optiuni: [
             "Vreau măsurători la fața locului | Нужен замер на объекте | I want on-site measurements",
-            "Le fac eu și răspund de corectitudinea lor | Сделаю сам(а) и отвечаю за их точность | I'll measure myself and I'm responsible for their accuracy",
+            "Le fac eu și îmi asum exactitatea lor | Сделаю сам(а) и беру ответственность за их точность | I will measure myself and take responsibility for their accuracy",
           ] },
       ],
     },
@@ -229,22 +229,6 @@ window.BRIEF = {
         { id: "sursa", tip: "unul", eticheta: "De unde ați aflat de mine? | Откуда вы узнали обо мне? | How did you find me?",
           optiuni: ["Instagram | Instagram | Instagram", "Behance | Behance | Behance", "Recomandare | По рекомендации | Recommendation", "Google | Google | Google", "Altceva | Другое | Other"] },
         { id: "altceva", tip: "lung", eticheta: "Altceva important | Что-то еще важное | Anything else important" },
-      ],
-    },
-    {
-      // „text” = rândurile care se citesc (fiecare rând = un punct din listă)
-      titlu: "Condiții de lucru | Условия работы | Working terms",
-      text: [
-        "Măsurătorile: dacă le faceți dumneavoastră, proiectul se face exact după ele; pentru greșeli sau dimensiuni lipsă nu răspund. | Замеры: если их делаете вы, проект выполняется строго по ним; за ошибки или недостающие размеры я не отвечаю. | Measurements: if you take them yourself, the project follows them exactly; I cannot be responsible for errors or missing dimensions.",
-        "Lucrez pe etape: plan → randări 3D → desene tehnice. Fiecare etapă o aprobați înainte să trec la următoarea. | Работаю по этапам: план → 3D-визуализация → чертежи. Каждый этап вы утверждаете, прежде чем я перейду к следующему. | I work in stages: plan → 3D renderings → technical drawings. You approve each stage before I move on to the next.",
-        "La fiecare etapă, în preț intră 3 runde de modificări. O rundă = toate observațiile trimise odată, într-o singură listă. | На каждом этапе в стоимость входят 3 круга правок. Один круг — все замечания, отправленные сразу, одним списком. | Each stage includes 3 rounds of changes. One round = all comments sent together, in a single list.",
-        "Modificările peste aceste 3 runde se plătesc separat. | Правки сверх этих 3 кругов оплачиваются отдельно. | Changes beyond these 3 rounds are charged separately.",
-        "La o etapă aprobată nu ne mai întoarcem gratuit: de exemplu, schimbarea planului când lucrez deja la randări se plătește separat. | К утвержденному этапу бесплатно не возвращаемся: например, изменение плана, когда я уже делаю визуализацию, оплачивается отдельно. | We don't go back to an approved stage free of charge: for example, changing the plan while I am already working on the renderings is charged separately.",
-        "Prețul și termenele le stabilim împreună înainte de începerea lucrului. | Стоимость и сроки согласовываем до начала работы. | We agree on the price and deadlines before work begins.",
-      ],
-      intrebari: [
-        { id: "conditii", tip: "multe", obligatoriu: true, eticheta: "Condițiile | Условия | The terms",
-          optiuni: ["Am citit și sunt de acord | Прочитал(а) и согласен(на) | I have read and agree"] },
       ],
     },
   ],

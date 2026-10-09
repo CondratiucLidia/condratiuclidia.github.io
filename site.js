@@ -41,7 +41,7 @@
       despreSupra: "Designer de interior și mobilier", programe: "Programe", limbi: "Limbi",
       cvRo: "CV în română (PDF)", cvRu: "CV în rusă (PDF)",
       contactSupra: "Hai să vorbim", inapoi: "Toate proiectele", urmatorul: "Proiectul următor",
-      rol: "Rolul meu", concept: "Concept", realizat: "Realizat",
+      rol: "Rolul meu", concept: "Concept", realizat: "Realizat", vizualizare: "Vizualizare 3D",
       inchide: "Închide", anterioara: "Poza anterioară", urmatoarea: "Poza următoare",
       poza: "imaginea", lipsa: "Lipsește poza: ", sari: "Sari la conținut",
       categorii: { interior: "Interioare", bucatarie: "Bucătării", mobilier: "Mobilier" },
@@ -53,7 +53,7 @@
       despreSupra: "Дизайнер интерьеров и мебели", programe: "Программы", limbi: "Языки",
       cvRo: "Резюме на румынском (PDF)", cvRu: "Резюме на русском (PDF)", cvEn: "Резюме на английском (PDF)",
       contactSupra: "Давайте обсудим", inapoi: "Все проекты", urmatorul: "Следующий проект",
-      rol: "Моя роль", concept: "Концепция", realizat: "Реализовано",
+      rol: "Моя роль", concept: "Концепция", realizat: "Реализовано", vizualizare: "3D-визуализация",
       inchide: "Закрыть", anterioara: "Предыдущее фото", urmatoarea: "Следующее фото",
       poza: "изображение", lipsa: "Нет фото: ", sari: "Перейти к содержанию",
       categorii: { interior: "Интерьеры", bucatarie: "Кухни", mobilier: "Мебель" },
@@ -65,7 +65,7 @@
       despreSupra: "Interior and furniture designer", programe: "Software", limbi: "Languages",
       cvRo: "CV in Romanian (PDF)", cvRu: "CV in Russian (PDF)", cvEn: "CV in English (PDF)",
       contactSupra: "Let's talk", inapoi: "All projects", urmatorul: "Next project",
-      rol: "My role", concept: "Concept", realizat: "Built",
+      rol: "My role", concept: "Concept", realizat: "Built", vizualizare: "3D visualisation",
       inchide: "Close", anterioara: "Previous image", urmatoarea: "Next image",
       poza: "image", lipsa: "Missing image: ", sari: "Skip to content",
       categorii: { interior: "Interiors", bucatarie: "Kitchens", mobilier: "Furniture" },
@@ -135,7 +135,7 @@
   }
   function metaProiect(p) {
     var bucati = [];
-    if (p.stadiu === "concept" || p.stadiu === "realizat") {
+    if (p.stadiu === "concept" || p.stadiu === "realizat" || p.stadiu === "vizualizare") {
       bucati.push('<span class="eticheta' + (p.stadiu === "realizat" ? " realizat" : "") + '">' + esc(u(p.stadiu)) + "</span>");
     }
     [t(p.suprafata), t(p.locatie), t(p.an)].forEach(function (x) { if (x) bucati.push("<span>" + esc(x) + "</span>"); });
@@ -342,7 +342,8 @@
       (cvBtn ? '<div class="butoane" style="display:flex;flex-wrap:wrap;gap:12px">' + cvBtn + "</div>" : "") +
       "</div>" +
       (cifre ?
-        '<div class="panou-verde"><img class="trifoi" src="imagini/logo/semn-auriu.png" alt="" width="64" height="95">' +
+        '<div class="panou-verde"><div class="panou-cap"><img class="trifoi" src="imagini/logo/semn-auriu.png" alt="" width="64" height="95">' +
+        '<div><div class="clover-cuvant">CLOVER</div>' + (t(S.texte.semnatura) ? '<p class="panou-semnatura">' + esc(t(S.texte.semnatura)) + '</p>' : '') + '</div></div>' +
         '<dl class="cifre">' + cifre + "</dl></div>" : "") +
       "</div></section>";
 
