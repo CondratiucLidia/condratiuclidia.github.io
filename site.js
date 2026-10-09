@@ -206,8 +206,10 @@
     );
   }
 
-  function sectiuneContact() {
+  function sectiuneContact(peBrief) {
     var c = S.contact || {};
+    var invitatie = B && B.arata && !peBrief ?
+      '<div class="brief-invitatie"><p>' + esc(tr(B.texte.invitatie)) + '</p><a class="buton auriu" href="#/brief">' + esc(tr(B.texte.butonInvitatie)) + "</a></div>" : "";
     var linii = "";
     if (c.email) linii += '<a href="mailto:' + esc(c.email) + '">' + esc(c.email) + "</a>";
     if (c.telefon) linii += '<a href="tel:' + esc(c.telefon.replace(/[^\d+]/g, "")) + '">' + esc(c.telefon) + "</a>";
@@ -228,6 +230,7 @@
       '<h2 class="titlu-sectiune">' + esc(u("contact")) + "</h2>" +
       (t(S.texte.contactText) ? '<p class="text">' + esc(t(S.texte.contactText)) + "</p>" : "") +
       '<div class="contact-linii">' + linii + "</div>" +
+      invitatie +
       (retele ? '<div class="grup-contact"><div class="eticheta-mica">' + esc(u("scrieMi")) + '</div><div class="retele cu-iconite">' + retele + "</div></div>" : "") +
       (cv ? '<div class="grup-contact"><div class="eticheta-mica">' + esc(u("cvTitlu")) + '</div><div class="retele">' + cv + "</div></div>" : "") +
       '<div class="subsol"><div>© ' + new Date().getFullYear() + " " + esc(t(S.nume)) + " · " + esc(t(S.oras)) + "</div>" + clover + "</div>" +
@@ -311,7 +314,9 @@
       '<section class="proces"><div class="container">' +
       '<div class="supratitlu">' + esc(u("procesSupra")) + "</div>" +
       '<h2 class="titlu-sectiune">' + esc(u("cumLucrez")) + "</h2>" +
-      '<ol class="pasi">' + pasi + "</ol></div></section>" : "";
+      '<ol class="pasi">' + pasi + "</ol>" +
+      (B && B.arata ? '<a class="link-brief" href="#/brief">' + esc(tr(B.texte.linkProces)) + ' <span aria-hidden="true">→</span></a>' : "") +
+      "</div></section>" : "";
 
     var paragrafe = [].concat(S.texte.despre && (S.texte.despre[lang] || S.texte.despre.ro) || [])
       .map(function (x) { return "<p>" + esc(x) + "</p>"; }).join("");
@@ -400,18 +405,218 @@
     );
   }
 
+  // ---------- briefingul (întrebările sunt în brief.js) ----------
+  var B = window.BRIEF;
+  var CIORNA = "brief-ciorna";
+
+  // "Română | Русский | English" → textul în limba curentă
+  function tr(v) {
+    if (v == null) return "";
+    if (typeof v !== "string") return t(v);
+    var p = v.split("|");
+    return (p[{ ro: 0, ru: 1, en: 2 }[lang] || 0] || p[0]).trim();
+  }
+  function trRo(v) { return String(v).split("|")[0].trim(); }
+  function citesteCiorna() {
+    try { return JSON.parse(localStorage.getItem(CIORNA)) || {}; } catch (e) { return {}; }
+  }
+  function intrebariBrief() {
+    var toate = [];
+    B.sectiuni.forEach(function (s) { s.intrebari.forEach(function (q) { toate.push(q); }); });
+    return toate;
+  }
+  function sectiuneVizibila(s, r) {
+    if (!s.doarDaca) return true;
+    var q = intrebariBrief().filter(function (x) { return x.id === s.doarDaca[0]; })[0];
+    var ales = [].concat(r[s.doarDaca[0]] == null ? [] : r[s.doarDaca[0]]);
+    return !!q && ales.some(function (k) { return q.optiuni[k] && s.doarDaca.indexOf(trRo(q.optiuni[k])) > 0; });
+  }
+
+  function campBrief(q, val) {
+    var id = "b-" + q.id;
+    var et = esc(tr(q.eticheta)) + (q.obligatoriu ? ' <span class="oblig">*</span>' : "");
+    var aj = q.ajutor ? '<div class="ajutor">' + esc(tr(q.ajutor)) + "</div>" : "";
+    var atr = ' data-id="' + esc(q.id) + '"' + (q.obligatoriu ? ' data-oblig="1"' : "");
+    if (q.tip === "unul" || q.tip === "multe") {
+      return '<fieldset class="intrebare"' + atr + "><legend>" + et + "</legend>" + aj + '<div class="optiuni">' +
+        (q.optiuni || []).map(function (o, k) {
+          var bif = q.tip === "unul" ? val === k : (Array.isArray(val) && val.indexOf(k) >= 0);
+          return '<label class="optiune"><input type="checkbox" name="' + id + '" value="' + k + '"' +
+            (q.tip === "unul" ? ' data-unul="1"' : "") + (bif ? " checked" : "") + "><span>" + esc(tr(o)) + "</span></label>";
+        }).join("") + "</div></fieldset>";
+    }
+    var tip = q.tip === "telefon" ? 'type="tel" autocomplete="tel" inputmode="tel"' :
+      q.tip === "email" ? 'type="email" autocomplete="email"' :
+      q.id === "nume" ? 'type="text" autocomplete="name"' : 'type="text"';
+    var camp = q.tip === "lung" ?
+      '<textarea id="' + id + '" rows="3">' + esc(val || "") + "</textarea>" :
+      '<input id="' + id + '" ' + tip + ' value="' + esc(val || "") + '">';
+    return '<div class="intrebare"' + atr + '><label for="' + id + '">' + et + "</label>" + aj + camp + "</div>";
+  }
+
+  function paginaBrief() {
+    var r = citesteCiorna();
+    var T = B.texte;
+    var sectiuni = B.sectiuni.map(function (s, i) {
+      return '<section class="brief-sectiune" data-sectiune="' + i + '"' + (sectiuneVizibila(s, r) ? "" : " hidden") + ">" +
+        '<div class="nr" aria-hidden="true"></div><h2>' + esc(tr(s.titlu)) + "</h2>" +
+        s.intrebari.map(function (q) { return campBrief(q, r[q.id]); }).join("") + "</section>";
+    }).join("");
+    return (
+      '<article class="brief"><div class="container">' +
+      '<a class="inapoi" href="#"><span aria-hidden="true">←</span> ' + esc(t(S.nume)) + "</a>" +
+      '<div class="supratitlu">' + esc(tr(T.supratitlu)) + "</div>" +
+      "<h1>" + esc(tr(T.titlu)) + "</h1>" +
+      '<p class="brief-intro">' + esc(tr(T.intro)) + "</p>" +
+      '<p class="brief-nota">' + esc(tr(T.durata)) + "</p>" +
+      '<form id="brief-form" novalidate>' + sectiuni +
+      '<section class="brief-poze"><h2>' + esc(tr(T.pozeTitlu)) + "</h2><p>" + esc(tr(T.pozeText)) + "</p><ul>" +
+      (T.pozeLista || []).map(function (x) { return "<li>" + esc(tr(x)) + "</li>"; }).join("") + "</ul>" +
+      '<p class="brief-cum">' + esc(tr(T.pozeCum)) + "</p></section>" +
+      '<p class="brief-eroare" id="brief-eroare" role="alert" hidden>' + esc(tr(T.lipsa)) + "</p>" +
+      '<div class="brief-trimite">' +
+      '<button type="button" class="buton" data-trimite="whatsapp">' + esc(tr(T.trimiteWhatsapp)) + "</button>" +
+      (S.contact && S.contact.email ? '<button type="button" class="buton contur" data-trimite="email">' + esc(tr(T.trimiteEmail)) + "</button>" : "") +
+      '<button type="button" class="buton contur" data-trimite="copiaza">' + esc(tr(T.copiaza)) + "</button>" +
+      "</div>" +
+      '<p class="brief-nota">' + esc(tr(T.viber)) + "</p>" +
+      '<div class="brief-dupa" id="brief-dupa" hidden><h2>' + esc(tr(T.dupaTitlu)) + "</h2><p>" + esc(tr(T.dupaText)) + "</p>" +
+      "<p>" + esc(tr(T.pozeCum)) + "</p></div>" +
+      '<p class="brief-nota brief-conf">' + esc(tr(T.confidential)) + ' <button type="button" class="link-sterge" id="brief-sterge">' + esc(tr(T.sterge)) + "</button></p>" +
+      "</form></div></article>"
+    );
+  }
+
+  function raspunsuriBrief(form) {
+    var r = {};
+    intrebariBrief().forEach(function (q) {
+      if (q.tip === "unul" || q.tip === "multe") {
+        var bif = [].slice.call(form.querySelectorAll('input[name="b-' + q.id + '"]:checked')).map(function (i) { return +i.value; });
+        if (bif.length) r[q.id] = q.tip === "unul" ? bif[0] : bif;
+      } else {
+        var el = document.getElementById("b-" + q.id);
+        if (el && el.value.trim()) r[q.id] = el.value.trim();
+      }
+    });
+    return r;
+  }
+
+  function textBrief(r, simplu) {
+    var b = simplu ? "" : "*";
+    var linii = [b + tr(B.texte.antetMesaj) + " — " + t(S.nume) + b];
+    B.sectiuni.forEach(function (s, i) {
+      if (!sectiuneVizibila(s, r)) return;
+      var bucata = [];
+      s.intrebari.forEach(function (q) {
+        var v = r[q.id];
+        if (v == null) return;
+        var txt = q.tip === "unul" ? tr(q.optiuni[v]) :
+          q.tip === "multe" ? v.map(function (k) { return tr(q.optiuni[k]); }).join(", ") : v;
+        var et = tr(q.eticheta);
+        bucata.push(et + (/[?:]$/.test(et) ? " " : ": ") + txt);
+      });
+      if (bucata.length) linii.push("", b + tr(s.titlu).toUpperCase() + b, bucata.join("\n"));
+    });
+    return linii.join("\n");
+  }
+
+  function leagaBrief() {
+    var form = document.getElementById("brief-form");
+    if (!form) return;
+    function salveaza() {
+      var r = raspunsuriBrief(form);
+      try { localStorage.setItem(CIORNA, JSON.stringify(r)); } catch (e) {}
+      B.sectiuni.forEach(function (s, i) {
+        form.querySelector('[data-sectiune="' + i + '"]').hidden = !sectiuneVizibila(s, r);
+      });
+      return r;
+    }
+    form.addEventListener("change", function (e) {
+      var x = e.target;
+      // la întrebările cu un singur răspuns, bifarea unei variante le debifează pe celelalte
+      if (x.getAttribute("data-unul") && x.checked) {
+        form.querySelectorAll('input[name="' + x.name + '"]').forEach(function (o) { if (o !== x) o.checked = false; });
+      }
+      var q = x.closest(".intrebare");
+      if (q) q.classList.remove("lipsa");
+      salveaza();
+    });
+    form.addEventListener("input", salveaza);
+    form.addEventListener("submit", function (e) { e.preventDefault(); });
+
+    form.querySelectorAll("[data-trimite]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var r = salveaza();
+        var lipsa = [].slice.call(form.querySelectorAll("[data-oblig]")).filter(function (el) {
+          var v = r[el.getAttribute("data-id")];
+          return v == null || (Array.isArray(v) && !v.length);
+        });
+        form.querySelectorAll(".intrebare.lipsa").forEach(function (el) { el.classList.remove("lipsa"); });
+        lipsa.forEach(function (el) { el.classList.add("lipsa"); });
+        document.getElementById("brief-eroare").hidden = !lipsa.length;
+        if (lipsa.length) { lipsa[0].scrollIntoView({ block: "center" }); return; }
+
+        var cum = btn.getAttribute("data-trimite");
+        var c = S.contact || {};
+        if (cum === "whatsapp") {
+          var nr = (/wa\.me\/(\d+)/.exec(c.whatsapp || "") || [])[1] || String(c.telefon || "").replace(/\D/g, "");
+          var url = "https://wa.me/" + nr + "?text=" + encodeURIComponent(textBrief(r, false));
+          var w = window.open(url, "_blank");
+          if (!w) location.href = url;
+          document.getElementById("brief-dupa").hidden = false;
+        } else if (cum === "email") {
+          location.href = "mailto:" + c.email + "?subject=" + encodeURIComponent(tr(B.texte.antetMesaj) + " — " + (r.nume || "")) +
+            "&body=" + encodeURIComponent(textBrief(r, true).replace(/\n/g, "\r\n"));
+          document.getElementById("brief-dupa").hidden = false;
+        } else {
+          copiaza(textBrief(r, false), btn);
+        }
+      });
+    });
+
+    var sterge = document.getElementById("brief-sterge");
+    var sigur = false;
+    sterge.addEventListener("click", function () {
+      if (!sigur) {
+        sigur = true;
+        sterge.textContent = tr(B.texte.stergeSigur);
+        setTimeout(function () { sigur = false; sterge.textContent = tr(B.texte.sterge); }, 4000);
+        return;
+      }
+      try { localStorage.removeItem(CIORNA); } catch (e) {}
+      deseneaza();
+    });
+  }
+
+  function copiaza(text, btn) {
+    var vechi = btn.textContent;
+    function gata() { btn.textContent = tr(B.texte.copiat); setTimeout(function () { btn.textContent = vechi; }, 2500); }
+    function rezerva() {
+      var ta = document.createElement("textarea");
+      ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); gata(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(gata, rezerva);
+    else rezerva();
+  }
+
   // ---------- desenare și navigare ----------
   function deseneaza() {
     document.documentElement.lang = lang;
     var m = /^#\/proiect\/([^/?#]+)/.exec(location.hash);
     var p = m ? P.filter(function (x) { return x.id === decodeURIComponent(m[1]); })[0] : null;
+    var brief = !p && B && /^#\/brief\b/.test(location.hash);
     var baza = t(S.nume) + " — " + t(S.rol);
-    document.title = p ? t(p.titlu) + " — " + t(S.nume) : baza;
+    document.title = p ? t(p.titlu) + " — " + t(S.nume) : brief ? tr(B.texte.titlu) + " — " + t(S.nume) : baza;
 
-    app.innerHTML = antet() + '<main id="continut">' + (p ? paginaProiect(p) : paginaPrincipala()) + "</main>" + sectiuneContact() + luminaHtml();
+    app.innerHTML = antet() + '<main id="continut">' + (p ? paginaProiect(p) : brief ? paginaBrief() : paginaPrincipala()) + "</main>" +
+      sectiuneContact(brief) + luminaHtml();
     leaga();
+    if (brief) leagaBrief();
 
-    if (p) {
+    if (p || brief) {
       window.scrollTo(0, 0);
     } else if (location.hash && location.hash.length > 1 && location.hash.charAt(1) !== "/") {
       var tinta = document.getElementById(location.hash.slice(1));
