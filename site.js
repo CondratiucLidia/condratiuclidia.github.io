@@ -42,7 +42,7 @@
       cvRo: "CV în română (PDF)", cvRu: "CV în rusă (PDF)",
       contactSupra: "Hai să vorbim", inapoi: "Toate proiectele", urmatorul: "Proiectul următor",
       rol: "Rolul meu", concept: "Concept", realizat: "Realizat", vizualizare: "Vizualizare 3D",
-      inchide: "Închide", anterioara: "Poza anterioară", urmatoarea: "Poza următoare",
+      inchide: "Închide", mareste: "Mărește", micsoreaza: "Micșorează", anterioara: "Poza anterioară", urmatoarea: "Poza următoare",
       poza: "imaginea", lipsa: "Lipsește poza: ", sari: "Sari la conținut",
       categorii: { interior: "Interioare", bucatarie: "Bucătării", mobilier: "Mobilier" },
     },
@@ -54,7 +54,7 @@
       cvRo: "Резюме на румынском (PDF)", cvRu: "Резюме на русском (PDF)", cvEn: "Резюме на английском (PDF)",
       contactSupra: "Давайте обсудим", inapoi: "Все проекты", urmatorul: "Следующий проект",
       rol: "Моя роль", concept: "Концепция", realizat: "Реализовано", vizualizare: "3D-визуализация",
-      inchide: "Закрыть", anterioara: "Предыдущее фото", urmatoarea: "Следующее фото",
+      inchide: "Закрыть", mareste: "Увеличить", micsoreaza: "Уменьшить", anterioara: "Предыдущее фото", urmatoarea: "Следующее фото",
       poza: "изображение", lipsa: "Нет фото: ", sari: "Перейти к содержанию",
       categorii: { interior: "Интерьеры", bucatarie: "Кухни", mobilier: "Мебель" },
     },
@@ -66,7 +66,7 @@
       cvRo: "CV in Romanian (PDF)", cvRu: "CV in Russian (PDF)", cvEn: "CV in English (PDF)",
       contactSupra: "Let's talk", inapoi: "All projects", urmatorul: "Next project",
       rol: "My role", concept: "Concept", realizat: "Built", vizualizare: "3D visualisation",
-      inchide: "Close", anterioara: "Previous image", urmatoarea: "Next image",
+      inchide: "Close", mareste: "Zoom in", micsoreaza: "Zoom out", anterioara: "Previous image", urmatoarea: "Next image",
       poza: "image", lipsa: "Missing image: ", sari: "Skip to content",
       categorii: { interior: "Interiors", bucatarie: "Kitchens", mobilier: "Furniture" },
     },
@@ -209,7 +209,8 @@
   function sectiuneContact(peBrief) {
     var c = S.contact || {};
     var invitatie = B && B.arata && !peBrief ?
-      '<div class="brief-invitatie"><p>' + esc(tr(B.texte.invitatie)) + '</p><a class="buton auriu" href="#/brief">' + esc(tr(B.texte.butonInvitatie)) + "</a></div>" : "";
+      '<div class="grup-contact"><div class="eticheta-mica">' + esc(tr(B.texte.etichetaContact)) + '</div><div class="retele">' +
+      '<a class="buton contur" href="#/brief">' + esc(tr(B.texte.butonInvitatie)) + "</a></div></div>" : "";
     var linii = "";
     if (c.email) linii += '<a href="mailto:' + esc(c.email) + '">' + esc(c.email) + "</a>";
     if (c.telefon) linii += '<a href="tel:' + esc(c.telefon.replace(/[^\d+]/g, "")) + '">' + esc(c.telefon) + "</a>";
@@ -241,10 +242,14 @@
   function luminaHtml() {
     return (
       '<div class="lumina" id="lumina" role="dialog" aria-modal="true" aria-label="">' +
-      '<div class="bara"><span id="lumina-numar"></span>' +
+      '<div class="bara"><span id="lumina-numar"></span><div class="bara-butoane">' +
+      '<button type="button" id="lumina-minus" aria-label="' + esc(u("micsoreaza")) + '" title="' + esc(u("micsoreaza")) + '">' +
+      '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 11h12"/></svg></button>' +
+      '<button type="button" id="lumina-plus" aria-label="' + esc(u("mareste")) + '" title="' + esc(u("mareste")) + '">' +
+      '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 11h12M11 5v12"/></svg></button>' +
       '<button type="button" id="lumina-inchide" aria-label="' + esc(u("inchide")) + '">' +
-      '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button></div>' +
-      '<figure><img id="lumina-img" alt=""></figure>' +
+      '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button></div></div>' +
+      '<figure><img id="lumina-img" alt="" draggable="false"></figure>' +
       '<button type="button" class="prev" id="lumina-prev" aria-label="' + esc(u("anterioara")) + '">' +
       '<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 5l-8 8 8 8"/></svg></button>' +
       '<button type="button" class="next" id="lumina-next" aria-label="' + esc(u("urmatoarea")) + '">' +
@@ -681,16 +686,113 @@
     document.getElementById("lumina-prev").addEventListener("click", function () { mutaLumina(-1); });
     document.getElementById("lumina-next").addEventListener("click", function () { mutaLumina(1); });
     var L = document.getElementById("lumina");
-    L.addEventListener("click", function (e) { if (e.target === L || e.target.tagName === "FIGURE") inchideLumina(); });
-    var x0 = null;
-    L.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-    L.addEventListener("touchend", function (e) {
-      if (x0 === null) return;
-      var dx = e.changedTouches[0].clientX - x0;
-      if (Math.abs(dx) > 50) mutaLumina(dx < 0 ? 1 : -1);
-      x0 = null;
-    });
+    L.addEventListener("click", function (e) { if (e.target === L) inchideLumina(); });
+    leagaZoom(L);
   }
+
+  // ---------- mărirea pozei în vizualizarea mare ----------
+  // Rotița mouse-ului (cu sau fără Ctrl), clic pe poză, butoanele + / −, tastele + − 0;
+  // pe telefon: două degete (ciupire) și atingere. Când poza e mărită, se trage cu mouse-ul/degetul.
+  var ZOOM_MAX = 4;
+  var zoom = { s: 1, x: 0, y: 0 };
+  function figura() { return document.querySelector("#lumina figure"); }
+  function aplicaZoom(anim) {
+    var img = m("lumina-img");
+    if (!img) return;
+    img.style.transition = anim ? "transform .2s ease" : "none";
+    img.style.transform = zoom.s === 1 ? "" : "translate(" + zoom.x + "px," + zoom.y + "px) scale(" + zoom.s + ")";
+    m("lumina").classList.toggle("marit", zoom.s > 1);
+  }
+  function limiteazaZoom() {
+    var img = m("lumina-img"), f = figura();
+    var lx = Math.max(0, (img.offsetWidth * zoom.s - f.clientWidth) / 2);
+    var ly = Math.max(0, (img.offsetHeight * zoom.s - f.clientHeight) / 2);
+    zoom.x = Math.min(lx, Math.max(-lx, zoom.x));
+    zoom.y = Math.min(ly, Math.max(-ly, zoom.y));
+  }
+  function zoomLa(s2, px, py, anim) {
+    var r = figura().getBoundingClientRect();
+    var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    s2 = Math.min(ZOOM_MAX, Math.max(1, s2));
+    if (px == null) { px = cx; py = cy; }
+    var k = s2 / zoom.s;
+    // punctul de sub cursor/degete rămâne pe loc
+    zoom.x = px - cx - k * (px - cx - zoom.x);
+    zoom.y = py - cy - k * (py - cy - zoom.y);
+    zoom.s = s2;
+    if (s2 === 1) { zoom.x = 0; zoom.y = 0; }
+    limiteazaZoom();
+    aplicaZoom(anim);
+  }
+  function resetZoom() { zoom.s = 1; zoom.x = 0; zoom.y = 0; aplicaZoom(false); }
+
+  function leagaZoom(L) {
+    var f = figura();
+    var pts = {}, gest = null;
+    function dist(a, b) { return Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y)) || 1; }
+
+    m("lumina-plus").addEventListener("click", function () { zoomLa(zoom.s * 1.5, null, null, true); });
+    m("lumina-minus").addEventListener("click", function () { zoomLa(zoom.s / 1.5, null, null, true); });
+
+    L.addEventListener("wheel", function (e) {
+      e.preventDefault();
+      var d = e.deltaY * (e.deltaMode === 1 ? 33 : 1);
+      d = Math.max(-50, Math.min(50, d));
+      zoomLa(zoom.s * Math.exp(-d * 0.006), e.clientX, e.clientY, false);
+    }, { passive: false });
+
+    f.addEventListener("pointerdown", function (e) {
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      if (e.pointerType === "mouse") e.preventDefault();
+      try { f.setPointerCapture(e.pointerId); } catch (er) {}
+      pts[e.pointerId] = { x: e.clientX, y: e.clientY };
+      var ids = Object.keys(pts);
+      if (ids.length === 1) {
+        gest = { tip: "unul", x0: e.clientX, y0: e.clientY, px: e.clientX, py: e.clientY, mutat: false, tinta: e.target };
+      } else if (ids.length === 2) {
+        gest = { tip: "doi", d0: dist(pts[ids[0]], pts[ids[1]]), s0: zoom.s };
+      }
+    });
+    f.addEventListener("pointermove", function (e) {
+      if (!pts[e.pointerId] || !gest) return;
+      pts[e.pointerId] = { x: e.clientX, y: e.clientY };
+      var ids = Object.keys(pts);
+      if (gest.tip === "doi" && ids.length >= 2) {
+        var a = pts[ids[0]], b = pts[ids[1]];
+        zoomLa(gest.s0 * dist(a, b) / gest.d0, (a.x + b.x) / 2, (a.y + b.y) / 2, false);
+      } else if (gest.tip === "unul") {
+        if (Math.abs(e.clientX - gest.x0) + Math.abs(e.clientY - gest.y0) > 6) gest.mutat = true;
+        if (zoom.s > 1) {
+          zoom.x += e.clientX - gest.px; zoom.y += e.clientY - gest.py;
+          limiteazaZoom(); aplicaZoom(false);
+        }
+        gest.px = e.clientX; gest.py = e.clientY;
+      }
+    });
+    function sfarsit(e) {
+      if (!pts[e.pointerId]) return;
+      delete pts[e.pointerId];
+      if (!gest) return;
+      if (gest.tip === "doi") { if (!Object.keys(pts).length) gest = null; return; }
+      var dx = e.clientX - gest.x0, dy = e.clientY - gest.y0;
+      if (e.type === "pointerup") {
+        if (!gest.mutat) {
+          // atingere/clic: pe poză = mărește sau revine; pe fundal = închide
+          if (gest.tinta.tagName === "IMG") zoomLa(zoom.s > 1 ? 1 : 2.5, e.clientX, e.clientY, true);
+          else if (zoom.s === 1) inchideLumina();
+        } else if (zoom.s === 1 && Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+          mutaLumina(dx < 0 ? 1 : -1);
+        }
+      }
+      gest = null;
+    }
+    f.addEventListener("pointerup", sfarsit);
+    f.addEventListener("pointercancel", sfarsit);
+  }
+  window.addEventListener("resize", function () {
+    var L = document.getElementById("lumina");
+    if (L && L.classList.contains("deschis") && zoom.s > 1) { limiteazaZoom(); aplicaZoom(false); }
+  });
 
   // ---------- vizualizare mare ----------
   function m(id) { return document.getElementById(id); }
@@ -698,6 +800,7 @@
     var id = lumina.id;
     if (!id) return;
     var f = lumina.poze[lumina.i];
+    resetZoom();
     m("lumina-img").src = cale(id, f);
     m("lumina-img").alt = lumina.titlu + " — " + u("poza") + " " + (lumina.i + 1);
     m("lumina-numar").textContent = (lumina.i + 1) + " / " + lumina.poze.length;
@@ -715,6 +818,7 @@
   }
   function inchideLumina() {
     m("lumina").classList.remove("deschis");
+    resetZoom();
     document.body.style.overflow = "";
     if (lumina.inapoiLa) lumina.inapoiLa.focus();
   }
@@ -739,6 +843,9 @@
     if (e.key === "Escape") inchideLumina();
     else if (e.key === "ArrowRight") mutaLumina(1);
     else if (e.key === "ArrowLeft") mutaLumina(-1);
+    else if (e.key === "+" || e.key === "=") zoomLa(zoom.s * 1.5, null, null, true);
+    else if (e.key === "-") zoomLa(zoom.s / 1.5, null, null, true);
+    else if (e.key === "0") zoomLa(1, null, null, true);
   });
 
   window.addEventListener("scroll", function () {

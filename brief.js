@@ -27,7 +27,7 @@ window.BRIEF = {
     titlu: "Briefing pentru proiect | Бриф на проект | Project brief",
     intro: "Răspunsurile mă ajută să înțeleg cum trăiți și ce vă trebuie, încă înainte de prima întâlnire. Completați doar ce știți — întrebările cu * sunt obligatorii, restul le putem discuta împreună. | Ответы помогут мне понять, как вы живете и что вам нужно, еще до первой встречи. Заполните только то, что знаете — вопросы со * обязательны, остальное обсудим вместе. | Your answers help me understand how you live and what you need, even before we first meet. Fill in only what you know — questions marked * are required, the rest we can discuss together.",
     durata: "Durează 10–15 minute. | Займет 10–15 минут. | Takes 10–15 minutes.",
-    invitatie: "Aveți un proiect? Răspundeți la câteva întrebări despre locuință și gusturi — durează 10–15 minute. | Есть проект? Ответьте на несколько вопросов о жилье и вкусах — это займет 10–15 минут. | Have a project? Answer a few questions about your home and taste — it takes 10–15 minutes.",
+    etichetaContact: "Proiect nou | Новый проект | New project",
     butonInvitatie: "Completează briefingul | Заполнить бриф | Fill in the brief",
     linkProces: "Primul pas: briefingul | Первый шаг: бриф | The first step: the brief",
 

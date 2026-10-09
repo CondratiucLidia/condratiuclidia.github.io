@@ -368,10 +368,6 @@ button { font: inherit; color: inherit; }
 .retele a.iconita:hover::after, .retele a.iconita:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
 
 /* ---------- Briefingul pentru clienți (pagina #/brief) ---------- */
-.buton.auriu { background: var(--auriu); border-color: var(--auriu); color: var(--verde); }
-.buton.auriu:hover { background: var(--crem); border-color: var(--crem); }
-.brief-invitatie { margin: 0 0 34px; padding: 22px 0 0; border-top: 1px solid rgba(222, 194, 151, 0.3); max-width: 620px; }
-.brief-invitatie p { margin: 0 0 16px; font-size: 16px; color: var(--pe-verde); }
 .link-brief { display: inline-flex; align-items: center; gap: 8px; margin-top: 36px; min-height: 44px; font-weight: 700; font-size: 15px; color: var(--verde); text-underline-offset: 5px; }
 .link-brief:hover { color: var(--nuc); }
 
@@ -439,3 +435,10 @@ button { font: inherit; color: inherit; }
 .panou-verde .panou-semnatura { margin: 12px 0 0; font-family: var(--serif); font-style: italic; font-size: clamp(19px, 1.8vw, 22px); line-height: 1.3; color: var(--pe-verde); }
 /* linkul spre briefing din pasul I de la „Cum lucrez” */
 .pasi .link-brief { margin-top: 12px; min-height: 0; font-size: 14.5px; }
+
+/* ---------- Vizualizarea mare: mărire (zoom) ---------- */
+.lumina .bara-butoane { display: flex; align-items: center; gap: 2px; }
+.lumina figure { overflow: hidden; touch-action: none; }
+.lumina img { cursor: zoom-in; }
+.lumina.marit img { cursor: grab; }
+.lumina.marit img:active { cursor: grabbing; }
