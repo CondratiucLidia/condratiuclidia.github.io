@@ -154,7 +154,7 @@ window.PROIECTE = [
       ru: "Выставочная квартира, продуманная с нуля: кухня, гостиная и спальня в двух стилистических направлениях — для двух разных образов жизни. Первое — теплое и насыщенное: кирпич, массив дерева с живым краем, черный металл и точечный свет. Второе — воздушное: светлые тона, деревянные рейки и мягкий рассеянный свет. Одни и те же комнаты, два характера, чтобы посетитель узнал себя в одном из них. Панорамы 360° и VR-тур создавала вместе с командой.",
       en: "An exhibition apartment designed from scratch: kitchen, living room and bedroom in two stylistic directions, for two ways of living. The first is warm and dense: brick, solid wood with live edges, black metal and focused light. The second is airy: light tones, wooden slats and diffused light. The same rooms, two characters, so that visitors recognise themselves in one of them. The 360° panoramas and the VR tour were made together with the team.",
     },
-    an: "2025",
+    an: "",
     suprafata: "",
     stadiu: "concept",
     locatie: { ro: "Dubai, EAU", ru: "Дубай, ОАЭ", en: "Dubai, UAE" },

@@ -36,7 +36,7 @@
   var UI = {
     ro: {
       proiecte: "Proiecte", despre: "Despre mine", contact: "Contact", meniu: "Meniu",
-      lucrari: "Lucrări selectate", toate: "Toate", vezi: "Vezi proiectele", descarcaCv: "Deschide CV", scrieMi: "Scrie-mi", cvTitlu: "CV",
+      lucrari: "Interioare și mobilier", toate: "Toate", vezi: "Vezi proiectele", descarcaCv: "Deschide CV", scrieMi: "Scrie-mi", cvTitlu: "CV",
       cumLucrez: "Cum lucrez", procesSupra: "De la idee la producție",
       despreSupra: "Designer de interior și mobilier", programe: "Programe", limbi: "Limbi",
       cvRo: "CV în română (PDF)", cvRu: "CV în rusă (PDF)",
@@ -48,7 +48,7 @@
     },
     ru: {
       proiecte: "Проекты", despre: "Обо мне", contact: "Контакты", meniu: "Меню",
-      lucrari: "Избранные работы", toate: "Все", vezi: "Смотреть проекты", descarcaCv: "Открыть резюме", scrieMi: "Напишите мне", cvTitlu: "Резюме",
+      lucrari: "Интерьеры и мебель", toate: "Все", vezi: "Смотреть проекты", descarcaCv: "Открыть резюме", scrieMi: "Напишите мне", cvTitlu: "Резюме",
       cumLucrez: "Как я работаю", procesSupra: "От идеи до производства",
       despreSupra: "Дизайнер интерьеров и мебели", programe: "Программы", limbi: "Языки",
       cvRo: "Резюме на румынском (PDF)", cvRu: "Резюме на русском (PDF)", cvEn: "Резюме на английском (PDF)",
@@ -60,7 +60,7 @@
     },
     en: {
       proiecte: "Projects", despre: "About me", contact: "Contact", meniu: "Menu",
-      lucrari: "Selected work", toate: "All", vezi: "View projects", descarcaCv: "Open CV", scrieMi: "Message me", cvTitlu: "CV",
+      lucrari: "Interiors and furniture", toate: "All", vezi: "View projects", descarcaCv: "Open CV", scrieMi: "Message me", cvTitlu: "CV",
       cumLucrez: "How I work", procesSupra: "From idea to production",
       despreSupra: "Interior and furniture designer", programe: "Software", limbi: "Languages",
       cvRo: "CV in Romanian (PDF)", cvRu: "CV in Russian (PDF)", cvEn: "CV in English (PDF)",
@@ -460,6 +460,7 @@
     var sectiuni = B.sectiuni.map(function (s, i) {
       return '<section class="brief-sectiune" data-sectiune="' + i + '"' + (sectiuneVizibila(s, r) ? "" : " hidden") + ">" +
         '<div class="nr" aria-hidden="true"></div><h2>' + esc(tr(s.titlu)) + "</h2>" +
+        (s.text ? '<ul class="brief-conditii">' + s.text.map(function (x) { return "<li>" + esc(tr(x)) + "</li>"; }).join("") + "</ul>" : "") +
         s.intrebari.map(function (q) { return campBrief(q, r[q.id]); }).join("") + "</section>";
     }).join("");
     return (

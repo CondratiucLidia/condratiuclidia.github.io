@@ -62,8 +62,9 @@ button { font: inherit; color: inherit; }
 .limba-buton {
   display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
   min-height: 36px; padding: 0 12px 0 14px; border: 1px solid var(--linie); border-radius: 999px;
-  background: transparent; color: var(--verde); font-size: 13px; font-weight: 700; letter-spacing: 0.08em;
+  background: transparent; color: var(--text-2); font-size: 14px; font-weight: 600; letter-spacing: 0.06em;
 }
+.limba-buton:hover, .limba.deschis .limba-buton { color: var(--verde); }
 .limba-buton svg { transition: transform .2s; }
 .limba-lista { display: none; position: absolute; top: 100%; right: 0; padding-top: 6px; z-index: 60; }
 .limba-lista > div {
@@ -357,6 +358,7 @@ button { font: inherit; color: inherit; }
   color: var(--auriu);
 }
 .retele a.iconita svg { width: 22px; height: 22px; }
+.retele a.iconita:hover, .retele a.iconita:focus-visible { color: var(--verde); background: var(--auriu); border-color: var(--auriu); }
 .retele a.iconita::after {
   content: attr(data-nume); position: absolute; bottom: calc(100% + 8px); left: 50%;
   transform: translate(-50%, 4px); padding: 4px 10px; border-radius: 6px; white-space: nowrap;
@@ -426,3 +428,6 @@ button { font: inherit; color: inherit; }
 #brief-form { counter-reset: sectiune; }
 .brief-sectiune:not([hidden]) { counter-increment: sectiune; }
 .brief-sectiune .nr::before { content: counter(sectiune, upper-roman); }
+.brief-conditii { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; max-width: 680px; }
+.brief-conditii li { position: relative; padding-left: 22px; font-size: 15.5px; color: #3A352E; }
+.brief-conditii li::before { content: ""; position: absolute; left: 2px; top: 0.6em; width: 8px; height: 8px; border-radius: 50%; background: var(--auriu-inchis); }
