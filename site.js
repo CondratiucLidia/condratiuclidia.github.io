@@ -308,14 +308,16 @@
 
     var pasi = (S.texte.pasi || []).map(function (p, i) {
       var cifre = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
-      return '<li><div class="nr">' + (cifre[i] || i + 1) + "</div><h3>" + esc(t(p.titlu)) + "</h3><p>" + esc(t(p.text)) + "</p></li>";
+      // primul pas are și linkul spre briefing (dacă briefingul e pornit în brief.js)
+      var link = i === 0 && B && B.arata ?
+        '<a class="link-brief" href="#/brief">' + esc(tr(B.texte.butonInvitatie)) + ' <span aria-hidden="true">→</span></a>' : "";
+      return '<li><div class="nr">' + (cifre[i] || i + 1) + "</div><h3>" + esc(t(p.titlu)) + "</h3><p>" + esc(t(p.text)) + "</p>" + link + "</li>";
     }).join("");
     var proces = pasi ?
       '<section class="proces"><div class="container">' +
       '<div class="supratitlu">' + esc(u("procesSupra")) + "</div>" +
       '<h2 class="titlu-sectiune">' + esc(u("cumLucrez")) + "</h2>" +
       '<ol class="pasi">' + pasi + "</ol>" +
-      (B && B.arata ? '<a class="link-brief" href="#/brief">' + esc(tr(B.texte.linkProces)) + ' <span aria-hidden="true">→</span></a>' : "") +
       "</div></section>" : "";
 
     var paragrafe = [].concat(S.texte.despre && (S.texte.despre[lang] || S.texte.despre.ro) || [])
@@ -343,7 +345,7 @@
       "</div>" +
       (cifre ?
         '<div class="panou-verde"><div class="panou-cap"><img class="trifoi" src="imagini/logo/semn-auriu.png" alt="" width="64" height="95">' +
-        '<div><div class="clover-cuvant">CLOVER</div>' + (t(S.texte.semnatura) ? '<p class="panou-semnatura">' + esc(t(S.texte.semnatura)) + '</p>' : '') + '</div></div>' +
+        '<div><div class="clover-cuvant">CLOVER</div>' + (randuri(S.texte.semnatura) ? '<p class="panou-semnatura">' + randuri(S.texte.semnatura) + '</p>' : '') + '</div></div>' +
         '<dl class="cifre">' + cifre + "</dl></div>" : "") +
       "</div></section>";
 
