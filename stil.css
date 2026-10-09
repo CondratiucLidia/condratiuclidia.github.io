@@ -442,3 +442,20 @@ button { font: inherit; color: inherit; }
 .lumina img { cursor: zoom-in; }
 .lumina.marit img { cursor: grab; }
 .lumina.marit img:active { cursor: grabbing; }
+
+/* ---------- Contact pe coloane (ca un subsol de site) ---------- */
+.contact-grila { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr); gap: 40px 56px; align-items: start; }
+.contact-principal .text { margin-bottom: 28px; }
+.contact-principal .contact-linii { margin-bottom: 0; }
+.contact-linii a { font-size: clamp(26px, 2.5vw, 32px); }
+.contact-col .grup-contact { margin-bottom: 34px; }
+.contact-col .grup-contact:last-child { margin-bottom: 0; }
+.contact-col .eticheta-mica { margin-bottom: 14px; }
+/* butoanele din coloane: unul sub altul, toate de aceeași lățime */
+.retele.butoane-col { flex-direction: column; align-items: stretch; gap: 10px; max-width: 270px; }
+.retele.butoane-col .buton { width: 100%; }
+@media (max-width: 1000px) {
+  .contact-grila { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .contact-principal { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) { .contact-grila { grid-template-columns: minmax(0, 1fr); gap: 32px; } }

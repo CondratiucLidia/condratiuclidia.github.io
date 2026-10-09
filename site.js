@@ -209,8 +209,8 @@
   function sectiuneContact(peBrief) {
     var c = S.contact || {};
     var invitatie = B && B.arata && !peBrief ?
-      '<div class="grup-contact"><div class="eticheta-mica">' + esc(tr(B.texte.etichetaContact)) + '</div><div class="retele">' +
-      '<a class="buton contur" href="#/brief">' + esc(tr(B.texte.butonInvitatie)) + "</a></div></div>" : "";
+      '<div class="grup-contact"><div class="eticheta-mica">' + esc(tr(B.texte.etichetaContact)) + '</div>' +
+      '<div class="retele butoane-col"><a class="buton contur" href="#/brief">' + esc(tr(B.texte.butonInvitatie)) + "</a></div></div>" : "";
     var linii = "";
     if (c.email) linii += '<a href="mailto:' + esc(c.email) + '">' + esc(c.email) + "</a>";
     if (c.telefon) linii += '<a href="tel:' + esc(c.telefon.replace(/[^\d+]/g, "")) + '">' + esc(c.telefon) + "</a>";
@@ -225,15 +225,19 @@
     var cv = butoaneCv("contur", "contur");
     var clover = S.arataClover === false ? "" :
       '<div class="clover"><img src="imagini/logo/semn-auriu.png" alt="" width="18" height="26"><span>CLOVER</span></div>';
+    // Pe calculator: 3 coloane (contactul | proiect nou + mesagerii | CV); pe telefon una sub alta.
     return (
-      '<section class="contact" id="contact"><div class="container">' +
+      '<section class="contact" id="contact"><div class="container"><div class="contact-grila">' +
+      '<div class="contact-principal">' +
       '<div class="supratitlu">' + esc(u("contactSupra")) + "</div>" +
       '<h2 class="titlu-sectiune">' + esc(u("contact")) + "</h2>" +
       (t(S.texte.contactText) ? '<p class="text">' + esc(t(S.texte.contactText)) + "</p>" : "") +
-      '<div class="contact-linii">' + linii + "</div>" +
-      invitatie +
+      '<div class="contact-linii">' + linii + "</div></div>" +
+      '<div class="contact-col">' + invitatie +
       (retele ? '<div class="grup-contact"><div class="eticheta-mica">' + esc(u("scrieMi")) + '</div><div class="retele cu-iconite">' + retele + "</div></div>" : "") +
-      (cv ? '<div class="grup-contact"><div class="eticheta-mica">' + esc(u("cvTitlu")) + '</div><div class="retele">' + cv + "</div></div>" : "") +
+      "</div>" +
+      (cv ? '<div class="contact-col"><div class="grup-contact"><div class="eticheta-mica">' + esc(u("cvTitlu")) + '</div><div class="retele butoane-col">' + cv + "</div></div></div>" : "") +
+      "</div>" +
       '<div class="subsol"><div>© ' + new Date().getFullYear() + " " + esc(t(S.nume)) + " · " + esc(t(S.oras)) + "</div>" + clover + "</div>" +
       "</div></section>"
     );
