@@ -36,7 +36,7 @@
   var UI = {
     ro: {
       proiecte: "Proiecte", despre: "Despre mine", contact: "Contact", meniu: "Meniu",
-      lucrari: "Lucrări selectate", toate: "Toate", vezi: "Vezi proiectele", descarcaCv: "Descarcă CV",
+      lucrari: "Lucrări selectate", toate: "Toate", vezi: "Vezi proiectele", descarcaCv: "Deschide CV", scrieMi: "Scrie-mi pe", cvTitlu: "CV",
       cumLucrez: "Cum lucrez", procesSupra: "De la idee la producție",
       despreSupra: "Designer de interior și mobilier", programe: "Programe", limbi: "Limbi",
       cvRo: "CV în română (PDF)", cvRu: "CV în rusă (PDF)",
@@ -48,7 +48,7 @@
     },
     ru: {
       proiecte: "Проекты", despre: "Обо мне", contact: "Контакты", meniu: "Меню",
-      lucrari: "Избранные работы", toate: "Все", vezi: "Смотреть проекты", descarcaCv: "Скачать резюме",
+      lucrari: "Избранные работы", toate: "Все", vezi: "Смотреть проекты", descarcaCv: "Открыть резюме", scrieMi: "Напишите мне в", cvTitlu: "Резюме",
       cumLucrez: "Как я работаю", procesSupra: "От идеи до производства",
       despreSupra: "Дизайнер интерьеров и мебели", programe: "Программы", limbi: "Языки",
       cvRo: "Резюме на румынском (PDF)", cvRu: "Резюме на русском (PDF)", cvEn: "Резюме на английском (PDF)",
@@ -60,7 +60,7 @@
     },
     en: {
       proiecte: "Projects", despre: "About me", contact: "Contact", meniu: "Menu",
-      lucrari: "Selected work", toate: "All", vezi: "View projects", descarcaCv: "Download CV",
+      lucrari: "Selected work", toate: "All", vezi: "View projects", descarcaCv: "Open CV", scrieMi: "Message me on", cvTitlu: "CV",
       cumLucrez: "How I work", procesSupra: "From idea to production",
       despreSupra: "Interior and furniture designer", programe: "Software", limbi: "Languages",
       cvRo: "CV in Romanian (PDF)", cvRu: "CV in Russian (PDF)", cvEn: "CV in English (PDF)",
@@ -208,7 +208,8 @@
       '<h2 class="titlu-sectiune">' + esc(u("contact")) + "</h2>" +
       (t(S.texte.contactText) ? '<p class="text">' + esc(t(S.texte.contactText)) + "</p>" : "") +
       '<div class="contact-linii">' + linii + "</div>" +
-      (retele || cv ? '<div class="retele">' + retele + cv + "</div>" : "") +
+      (retele ? '<div class="grup-contact"><div class="eticheta-mica">' + esc(u("scrieMi")) + '</div><div class="retele">' + retele + "</div></div>" : "") +
+      (cv ? '<div class="grup-contact"><div class="eticheta-mica">' + esc(u("cvTitlu")) + '</div><div class="retele">' + cv + "</div></div>" : "") +
       '<div class="subsol"><div>© ' + new Date().getFullYear() + " " + esc(t(S.nume)) + " · " + esc(t(S.oras)) + "</div>" + clover + "</div>" +
       "</div></section>"
     );

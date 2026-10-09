@@ -322,3 +322,9 @@ button { font: inherit; color: inherit; }
   .galerie .subtitlu { margin: 28px 0 2px; }
   .urmatorul { margin-top: 40px; padding-top: 22px; }
 }
+
+/* ---------- Contact: mesagerii și CV pe rânduri separate ---------- */
+.grup-contact { margin-bottom: 22px; }
+.grup-contact .retele { margin-bottom: 0; }
+.eticheta-mica { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--auriu); margin-bottom: 10px; }
+.contact .subsol { margin-top: 44px; }
