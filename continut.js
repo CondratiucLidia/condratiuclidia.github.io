@@ -196,10 +196,10 @@ window.PROIECTE = [
     stadiu: "vizualizare",
     locatie: { ro: "", ru: "", en: "" },
     rol: { ro: "Proiectarea mobilierului, randări, desene tehnice", ru: "Проектирование мебели, рендеры, чертежи", en: "Furniture design, renderings, technical drawings" },
-    coperta: "01.jpg",
+    coperta: "03.jpg",
     poze: [
-      "01.jpg", "03.jpg", "04.jpg", "05.jpg", "06.jpg", "07.jpg", "08.jpg",
-      "15.jpg", "17.jpg", "19.jpg",
+      "03.jpg", "04.jpg", "05.jpg", "06.jpg", "07.jpg", "08.jpg",
+      "15.jpg", "19.jpg",
       "# Cum e organizat interiorul | Как устроено внутри | How it is organised inside",
       "10.jpg",
       "# Desene tehnice | Чертежи | Technical drawings",
@@ -226,9 +226,9 @@ window.PROIECTE = [
     poze: [
       "01.jpg", "02.jpg", "03.jpg", "04.jpg", "14.jpg",
       "# Cum e organizat interiorul | Как устроено внутри | How it is organised inside",
-      "05.jpg", "06.jpg", "07.jpg", "08.jpg",
+      "05.jpg", "07.jpg", "08.jpg",
       "# Zona de zi | Гостиная | Living area",
-      "09.jpg", "10.jpg", "11.jpg", "12.jpg", "13.jpg", "15.jpg", "16.jpg",
+      "09.jpg", "10.jpg", "11.jpg", "12.jpg", "15.jpg", "16.jpg",
     ],
   },
 
