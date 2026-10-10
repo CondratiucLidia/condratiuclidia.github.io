@@ -173,11 +173,11 @@ window.PROIECTE = [
     poze: [
       "02.png",
       "# Direcția I — piatră, lemn și metal | Направление I — камень, дерево и металл | Direction I — stone, wood and metal",
-      "03.jpg", "04.jpg", "05.jpg", "06.jpg",
-      "01.jpg", "07.jpg", "08.jpg", "09.jpg", "10.jpg",
-      "11.jpg", "12.jpg", "13.jpg", "14.jpg",
+      "03.jpg", "04.jpg", "05.jpg", "06.jpg", "21.jpg",
+      "01.jpg", "07.jpg", "08.jpg", "09.jpg", "10.jpg", "29.jpg", "30.jpg",
+      "11.jpg", "12.jpg", "13.jpg", "14.jpg", "24.jpg", "25.jpg", "26.jpg", "27.jpg",
       "# Direcția II — tonuri deschise și lemn | Направление II — светлые тона и дерево | Direction II — light tones and wood",
-      "15.jpg", "16.jpg", "17.jpg", "18.jpg", "19.jpg", "20.jpg",
+      "15.jpg", "16.jpg", "17.jpg", "22.jpg", "23.jpg", "18.jpg", "28.jpg", "19.jpg", "20.jpg",
     ],
   },
 
@@ -199,10 +199,11 @@ window.PROIECTE = [
     coperta: "01.jpg",
     poze: [
       "01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg", "06.jpg", "07.jpg", "08.jpg",
+      "15.jpg", "16.jpg", "17.jpg", "18.jpg", "19.jpg",
       "# Mobilierul cu fațadele deschise | Мебель с открытыми фасадами | The furniture with open fronts",
       "09.jpg", "10.jpg",
       "# Desene tehnice | Чертежи | Technical drawings",
-      "11.jpg", "12.jpg", "13.jpg", "14.jpg",
+      "11.jpg", "12.jpg", "13.jpg", "14.jpg", "20.jpg",
     ],
   },
 
@@ -223,11 +224,11 @@ window.PROIECTE = [
     rol: { ro: "Proiectarea mobilierului, randări", ru: "Проектирование мебели, рендеры", en: "Furniture design, renderings" },
     coperta: "01.jpg",
     poze: [
-      "01.jpg", "02.jpg", "03.jpg", "04.jpg",
+      "01.jpg", "02.jpg", "03.jpg", "04.jpg", "14.jpg",
       "# Mobilierul cu fațadele deschise | Мебель с открытыми фасадами | The furniture with open fronts",
       "05.jpg", "06.jpg", "07.jpg", "08.jpg",
       "# Zona de zi | Гостиная | Living area",
-      "09.jpg", "10.jpg", "11.jpg", "12.jpg", "13.jpg",
+      "09.jpg", "10.jpg", "11.jpg", "12.jpg", "13.jpg", "15.jpg", "16.jpg",
     ],
   },
 
@@ -302,7 +303,7 @@ window.PROIECTE = [
     rol: { ro: "Proiectarea mobilierului, randări, desene tehnice", ru: "Проектирование мебели, рендеры, чертежи", en: "Furniture design, renderings, technical drawings" },
     coperta: "01.jpg",
     poze: [
-      "01.jpg", "02.jpg", "03.jpg", "04.jpg",
+      "01.jpg", "02.jpg", "03.jpg", "04.jpg", "07.jpg", "08.jpg",
       "# Desene tehnice | Чертежи | Technical drawings",
       "05.jpg", "06.jpg",
     ],
