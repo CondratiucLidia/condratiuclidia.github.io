@@ -43,9 +43,9 @@ window.SITE = {
   texte: {
     motto: { ro: "Frumos de privit. Ușor de trăit.", ru: "Красиво смотреть. Легко жить.", en: "Beautiful to look at. Easy to live in." },
     intro: {
-      ro: "Proiectez interioare și mobilier la comandă — de la discuția cu clientul și măsurătorile la fața locului până la randări 3D și desene cu cote pentru producție.",
-      ru: "Проектирую интерьеры и мебель на заказ — от выяснения пожеланий клиента и замеров на объекте до 3D-визуализаций и чертежей с размерами для производства.",
-      en: "I design interiors and custom furniture — from the first conversation and on-site measurements to 3D renderings and dimensioned drawings for production.",
+      ro: "Casa nu înseamnă patru pereți, ci locul în care te simți acasă. De aici pornesc fiecare interior și fiecare corp de mobilier pe care îl proiectez.",
+      ru: "Дом — это не четыре стены, а место, где чувствуешь себя дома. С этого начинается каждый интерьер и каждый предмет мебели, который я проектирую.",
+      en: "A home is not four walls, but the place where you feel at home. That is where every interior and every piece of furniture I design begins.",
     },
 
     // Pașii din secțiunea „Cum lucrez”. Poți șterge sau adăuga pași.
@@ -160,9 +160,9 @@ window.PROIECTE = [
     titlu: { ro: "Un apartament, două direcții", ru: "Одна квартира, два настроения", en: "One apartment, two directions" },
     scurt: { ro: "Contrast îndrăzneț și detalii gândite până la capăt", ru: "Смелый контраст и продуманные детали", en: "Bold contrast and carefully considered details" },
     descriere: {
-      ro: "Conceptul de apartament pentru o expoziție în Dubai mi-a oferit libertatea de a experimenta. Direcția principală pune în valoare lemnul masiv cu margini vii și metalul negru, iar suspensia de deasupra insulei e o mică vinotecă iluminată. Dormitorul are și o variantă luminoasă, cu lamele din lemn.",
-      ru: "Концепция квартиры для выставки в Дубае дала мне возможность экспериментировать. В основном направлении главные — массив дерева с живым краем и черный металл, а подвес над островом — это маленькая винотека с подсветкой. Для спальни есть и светлый вариант с деревянными рейками.",
-      en: "The concept of an apartment for an exhibition in Dubai gave me the freedom to experiment. The main direction highlights solid live-edge wood and black metal, while the suspension above the island is a small lit wine rack. The bedroom also has a light version with wooden slats.",
+      ro: "Pentru o expoziție în Dubai am vrut să arăt ceva diferit de ce se vede de obicei acolo: un apartament în tonuri închise, cu lemn masiv cu margini vii și metal negru. Suspensia de deasupra insulei e o mică vinotecă iluminată. Dormitorul are și o variantă luminoasă, cu lamele din lemn.",
+      ru: "Для выставки в Дубае мне хотелось показать что-то непохожее на то, что там привыкли видеть: квартиру в темных тонах, с массивом дерева с живым краем и черным металлом. Подвес над островом — это маленькая винотека с подсветкой. Для спальни есть и светлый вариант с деревянными рейками.",
+      en: "For an exhibition in Dubai, I wanted to show something different from what is usually seen there: an apartment in dark tones, with solid live-edge wood and black metal. The suspension above the island is a small lit wine rack. The bedroom also has a light version with wooden slats.",
     },
     an: "",
     suprafata: "",
@@ -185,11 +185,11 @@ window.PROIECTE = [
     id: "bucatarie-perete-verde",
     categorie: "bucatarie",
     titlu: { ro: "Piatră, lemn și un accent verde", ru: "Камень, дерево и зеленый акцент", en: "Stone, wood and a touch of green" },
-    scurt: { ro: "Un apartament de burlac, în negru și stejar", ru: "Квартира для холостяка в черном и дубе", en: "A bachelor apartment in black and oak" },
+    scurt: { ro: "Caracter, negru mat și stejar", ru: "Характер, матовый черный и дуб", en: "Character, matte black and oak" },
     descriere: {
-      ro: "Un apartament pentru un burlac, cu un stil asumat și contraste puternice. Bucătăria neagră mată și șorțul din stejar sunt completate de un perete din piatră artificială, cu un cerc de mușchi stabilizat, iluminat din spate. Proiectul include organizarea interioară a corpurilor și desene tehnice pentru producție.",
-      ru: "Квартира для холостяка с четким характером и выразительными контрастами. Матовая черная кухня и дубовый фартук дополнены стеной из искусственного камня с подсвеченным сзади кругом из стабилизированного мха. В проект входят внутреннее наполнение шкафов и чертежи для производства.",
-      en: "An apartment for a bachelor, with a confident style and strong contrasts. The matte black kitchen and oak splashback are joined by an artificial stone wall with a backlit circle of preserved moss. The project includes the interior layout of the cabinets and technical drawings for production.",
+      ro: "Un apartament pentru o singură persoană, cu un stil asumat și contraste puternice. Bucătăria neagră mată și șorțul din stejar sunt completate de un perete din piatră artificială, cu un cerc de mușchi stabilizat, iluminat din spate. Proiectul include organizarea interioară a corpurilor și desene tehnice pentru producție.",
+      ru: "Квартира для одного человека, с четким характером и выразительными контрастами. Матовая черная кухня и дубовый фартук дополнены стеной из искусственного камня с подсвеченным сзади кругом из стабилизированного мха. В проект входят внутреннее наполнение шкафов и чертежи для производства.",
+      en: "An apartment for one person, with a confident style and strong contrasts. The matte black kitchen and oak splashback are joined by an artificial stone wall with a backlit circle of preserved moss. The project includes the interior layout of the cabinets and technical drawings for production.",
     },
     an: "",
     suprafata: "",
@@ -210,7 +210,7 @@ window.PROIECTE = [
   {
     id: "bucatarie-rafturi-metalice",
     categorie: "bucatarie",
-    titlu: { ro: "Negrul preferat al clientei", ru: "Любимый черный цвет хозяйки", en: "The client's favourite black" },
+    titlu: { ro: "O bucătărie în stilul ei", ru: "Кухня в ее стиле", en: "A kitchen in her style" },
     scurt: { ro: "Tonuri închise, lemn și lumină caldă", ru: "Темные тона, дерево и теплый свет", en: "Dark tones, wood and warm light" },
     descriere: {
       ro: "Bucătărie pentru o familie, pornită de la stilul clientei și preferința ei pentru negru. Coloana iluminată pentru pahare și vin, frigiderul side-by-side și electrocasnicele încorporate se pierd în tonurile închise; am propus și o variantă cu nuc și marmură albă. Zona de zi continuă cu masa mare și canapeaua.",
@@ -238,15 +238,15 @@ window.PROIECTE = [
     titlu: { ro: "Bucătărie și living deschis", ru: "Кухня и открытая гостиная", en: "Kitchen and open living room" },
     scurt: { ro: "Un spațiu unitar, în tonuri calme", ru: "Цельное пространство в спокойных тонах", en: "One space in calm tones" },
     descriere: {
-      ro: "Un singur spațiu pentru gătit, masă și odihnă, în care insula leagă bucătăria de living.",
-      ru: "Единое пространство для готовки, еды и отдыха, где остров связывает кухню с гостиной.",
-      en: "One space for cooking, dining and resting, where the island links the kitchen to the living room.",
+      ro: "Un singur spațiu pentru gătit, masă și odihnă: bucătăria cu insulă se deschide spre living.",
+      ru: "Единое пространство для готовки, еды и отдыха: кухня с островом открывается в гостиную.",
+      en: "One space for cooking, dining and resting: the kitchen with its island opens onto the living room.",
     },
     an: "",
     suprafata: "",
     stadiu: "vizualizare",
     locatie: { ro: "", ru: "", en: "" },
-    rol: { ro: "Concept interior, randări", ru: "Концепция интерьера, рендеры", en: "Interior concept, renderings" },
+    rol: { ro: "Proiectarea interiorului, randări", ru: "Проектирование интерьера, рендеры", en: "Interior design, renderings" },
     coperta: "01.jpg",
   },
 
@@ -271,12 +271,12 @@ window.PROIECTE = [
   {
     id: "bucatarie-alb-negru",
     categorie: "bucatarie",
-    titlu: { ro: "Bucătărie în L, contrast alb-negru", ru: "Угловая кухня в бело-черных тонах", en: "L-shaped kitchen in black and white" },
+    titlu: { ro: "Bucătărie în L, alb și tonuri închise", ru: "Угловая кухня: белый и темные тона", en: "L-shaped kitchen in white and dark tones" },
     scurt: { ro: "Contrast echilibrat și detalii funcționale", ru: "Выверенный контраст и функциональные детали", en: "Balanced contrast and functional details" },
     descriere: {
-      ro: "Contrast alb-negru, cu o coloană cu aspect de marmură neagră pentru pahare și vin. Proiectul include planul și elevațiile cotate pentru producție.",
-      ru: "Бело-черный контраст и колонна под черный мрамор для бокалов и вина. В проект входят план и развертки с размерами для производства.",
-      en: "Black-and-white contrast, with a black marble-look column for glasses and wine. The project includes the dimensioned plan and elevations for production.",
+      ro: "Albul și tonurile închise se echilibrează, iar o coloană cu aspect de marmură închisă adăpostește paharele și vinul. Proiectul include planul și elevațiile cotate pentru producție.",
+      ru: "Белый и темные тона уравновешивают друг друга, а в колонне под темный мрамор — место для бокалов и вина. В проект входят план и развертки с размерами для производства.",
+      en: "White and dark tones balance each other, while a dark marble-look column holds the glasses and wine. The project includes the dimensioned plan and elevations for production.",
     },
     an: "",
     suprafata: "",
