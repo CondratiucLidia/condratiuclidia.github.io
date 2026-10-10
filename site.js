@@ -814,7 +814,8 @@
     resetZoom();
     m("lumina-img").src = cale(id, f);
     m("lumina-img").alt = lumina.titlu + " — " + u("poza") + " " + (lumina.i + 1);
-    m("lumina-numar").textContent = (lumina.i + 1) + " / " + lumina.poze.length;
+    // Pe calculator („Verifica site-ul”) se vede și numele fișierului, ca să știi ce poză să scoți sau să muți.
+    m("lumina-numar").textContent = (lumina.i + 1) + " / " + lumina.poze.length + (local ? "   ·   fișierul: " + id + "/" + f : "");
     var urm = lumina.poze[(lumina.i + 1) % lumina.poze.length];
     if (urm) { var pre = new Image(); pre.src = cale(id, urm); }
   }
