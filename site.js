@@ -222,7 +222,14 @@
         retele += '<a class="iconita" href="' + esc(c[r[0]]) + '" target="_blank" rel="noopener" aria-label="' + r[1] + '" data-nume="' + r[1] + '">' +
           '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="' + ICONITE[r[0]] + '"/></svg></a>';
       });
-    var cv = butoaneCv("contur", "contur");
+    // CV-urile ca linkuri text (limba curentă prima); butoanele CV sunt deja la „Despre mine”
+    var cv = "";
+    if (S.cv) {
+      [lang].concat(LIMBI.filter(function (l) { return l !== lang; })).forEach(function (l) {
+        if (S.cv[l]) cv += '<li><a href="' + esc(S.cv[l]) + '" target="_blank" rel="noopener">' +
+          esc(u({ ro: "cvRo", ru: "cvRu", en: "cvEn" }[l])) + ' <span aria-hidden="true">→</span></a></li>';
+      });
+    }
     var clover = S.arataClover === false ? "" :
       '<div class="clover"><img src="imagini/logo/semn-auriu.png" alt="" width="18" height="26"><span>CLOVER</span></div>';
     // Pe calculator: 3 coloane (contactul | proiect nou + mesagerii | CV); pe telefon una sub alta.
@@ -236,7 +243,7 @@
       '<div class="contact-col">' + invitatie +
       (retele ? '<div class="grup-contact"><div class="eticheta-mica">' + esc(u("scrieMi")) + '</div><div class="retele cu-iconite">' + retele + "</div></div>" : "") +
       "</div>" +
-      (cv ? '<div class="contact-col"><div class="grup-contact"><div class="eticheta-mica">' + esc(u("cvTitlu")) + '</div><div class="retele butoane-col">' + cv + "</div></div></div>" : "") +
+      (cv ? '<div class="contact-col"><div class="grup-contact"><div class="eticheta-mica">' + esc(u("cvTitlu")) + '</div><ul class="lista-linkuri">' + cv + "</ul></div></div>" : "") +
       "</div>" +
       '<div class="subsol"><div>© ' + new Date().getFullYear() + " " + esc(t(S.nume)) + " · " + esc(t(S.oras)) + "</div>" + clover + "</div>" +
       "</div></section>"

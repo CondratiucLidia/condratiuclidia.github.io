@@ -459,3 +459,9 @@ button { font: inherit; color: inherit; }
   .contact-principal { grid-column: 1 / -1; }
 }
 @media (max-width: 600px) { .contact-grila { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
+/* CV-urile din Contact: linkuri text cu săgeată */
+.lista-linkuri { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.lista-linkuri a { display: inline-flex; align-items: center; gap: 8px; min-height: 30px; color: var(--crem); text-decoration: none; font-size: 15px; font-weight: 600; }
+.lista-linkuri a span { color: var(--auriu); transition: transform .2s; }
+.lista-linkuri a:hover { color: var(--auriu); }
+.lista-linkuri a:hover span { transform: translateX(3px); }
