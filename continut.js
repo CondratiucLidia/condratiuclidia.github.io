@@ -308,21 +308,4 @@ window.PROIECTE = [
     ],
   },
 
-  {
-    id: "bucatarie-grafit",
-    categorie: "bucatarie",
-    titlu: { ro: "Bucătărie liniară în grafit", ru: "Линейная кухня в графитовом цвете", en: "Linear kitchen in graphite" },
-    scurt: { ro: "Fațade grafit, marmură gri și accente roz-pudrat", ru: "Графитовые фасады, серый мрамор и пудрово-розовые акценты", en: "Graphite fronts, grey marble and powder-pink accents" },
-    descriere: {
-      ro: "O nișă între doi pereți devine locul unei bucătării liniare, în care fiecare element este integrat într-o singură compoziție. Fațadele mate, de culoarea grafitului, se combină cu frigiderul din inox și cuptorul negru, iar șorțul din marmură gri și lumina de sub corpurile suspendate echilibrează tonurile închise. Masa albă și scaunele roz-pudrat aduc un contrast delicat, fără să încarce vizual spațiul. În interior, corpurile sunt albe, cu sertare și loc pentru mașina de spălat vase. Proiectarea urmărește atât coerența vizuală, cât și folosirea practică a spațiului disponibil.",
-      ru: "Ниша между двумя стенами превращена в линейную кухню, где все элементы собраны в единую композицию. Матовые графитовые фасады сочетаются с холодильником из нержавеющей стали и черным духовым шкафом, а серый мраморный фартук и подсветка под навесными шкафами уравновешивают темную гамму. Белый стол и стулья пудрово-розового оттенка добавляют мягкий цветовой акцент, не перегружая пространство. Внутри мебель белая: ящики и место для посудомоечной машины. Проект объединяет цельный внешний вид и практичную организацию доступного пространства.",
-      en: "A niche between two walls becomes a linear kitchen in which every element belongs to one composition. Matte graphite fronts are combined with a stainless-steel fridge and a black oven, while the grey marble splashback and the lighting beneath the wall units balance the dark tones. The white table and powder-pink chairs add a gentle contrast without crowding the space. Inside, the cabinets are white, with drawers and room for the dishwasher. The design pursues both visual coherence and practical use of the available space.",
-    },
-    an: "",
-    suprafata: "",
-    stadiu: "vizualizare",
-    locatie: { ro: "", ru: "", en: "" },
-    rol: { ro: "Proiectarea mobilierului, randări", ru: "Проектирование мебели, рендеры", en: "Furniture design, renderings" },
-    coperta: "01.jpg",
-  },
 ];
