@@ -198,7 +198,7 @@ window.PROIECTE = [
     rol: { ro: "Proiectarea mobilierului, randări, desene tehnice", ru: "Проектирование мебели, рендеры, чертежи", en: "Furniture design, renderings, technical drawings" },
     coperta: "08.jpg",
     poze: [
-      "03.jpg", "05.jpg", "06.jpg", "07.jpg", "08.jpg",
+      "08.jpg", "05.jpg", "06.jpg", "07.jpg",
       "15.jpg",
       "# Cum e organizat interiorul | Как устроено внутри | How it is organised inside",
       "10.jpg",
@@ -287,7 +287,7 @@ window.PROIECTE = [
     poze: [
       "03.jpg", "02.jpg", "04.jpg", "05.jpg",
       "# Desene tehnice | Чертежи | Technical drawings",
-      "06.jpg", "07.jpg", "08.jpg",
+      "08.jpg", "07.jpg", "06.jpg",
     ],
   },
 
