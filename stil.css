@@ -465,3 +465,7 @@ button { font: inherit; color: inherit; }
 .lista-linkuri a span { color: var(--auriu); transition: transform .2s; }
 .lista-linkuri a:hover { color: var(--auriu); }
 .lista-linkuri a:hover span { transform: translateX(3px); }
+
+/* ---------- Ecrane mari: site mai lat, ca lh47 (textul rămâne ușor de citit) ---------- */
+:root { --latime: 1640px; --gutter: clamp(16px, 4.5vw, 80px); }
+.despre p, .contact .text { max-width: 68ch; }
