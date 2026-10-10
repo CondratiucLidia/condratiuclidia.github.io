@@ -23,7 +23,7 @@ window.SITE = {
     email: "condratiuclidia8@gmail.com",
     telefon: "+373 67 180 952",
     // Completează doar ce folosești (linkul întreg). Gol = nu apare.
-    instagram: "",   // când faci contul, scrie între ghilimele: "https://www.instagram.com/clover.designinterior"
+    instagram: "https://www.instagram.com/clover.designinterior",
     telegram: "",    // ex.: "https://t.me/numele_tau"
     whatsapp: "https://wa.me/37367180952",
     viber: "viber://chat?number=%2B37367180952",
