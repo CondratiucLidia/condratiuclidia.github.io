@@ -164,19 +164,7 @@
   }
 
   // ---------- bucăți comune ----------
-  // Butoanele de descărcare a CV-ului: limba curentă prima, apoi celelalte.
-  function butoaneCv(clasaPrima, clasaRest) {
-    if (!S.cv) return "";
-    var ordine = [lang].concat(LIMBI.filter(function (l) { return l !== lang; }));
-    var eticheta = { ro: "cvRo", ru: "cvRu", en: "cvEn" };
-    var html = "", prima = true;
-    ordine.forEach(function (l) {
-      if (!S.cv[l]) return;
-      html += '<a class="buton ' + (prima ? clasaPrima : clasaRest) + '" href="' + esc(S.cv[l]) + '" target="_blank" rel="noopener">' + esc(u(eticheta[l])) + "</a>";
-      prima = false;
-    });
-    return html;
-  }
+  // (CV-urile: butonul „Deschide CV” sus și lista de la Contact.)
 
   function antet() {
     var nav =
@@ -346,7 +334,6 @@
     }
     if (randuri(S.texte.programe)) fise += "<div><dt>" + esc(u("programe")) + "</dt><dd>" + randuri(S.texte.programe) + "</dd></div>";
     if (randuri(S.texte.limbi)) fise += "<div><dt>" + esc(u("limbi")) + "</dt><dd>" + randuri(S.texte.limbi) + "</dd></div>";
-    var cvBtn = butoaneCv("", "contur");
     var cifre = (S.texte.cifre || []).map(function (c) {
       return "<div><dt>" + esc(c.numar) + "</dt><dd>" + esc(t(c.text)) + "</dd></div>";
     }).join("");
@@ -357,7 +344,6 @@
       '<h2 class="titlu-sectiune">' + esc(u("despre")) + "</h2>" +
       paragrafe +
       (fise ? '<dl class="fise">' + fise + "</dl>" : "") +
-      (cvBtn ? '<div class="butoane" style="display:flex;flex-wrap:wrap;gap:12px">' + cvBtn + "</div>" : "") +
       "</div>" +
       (cifre ?
         '<div class="panou-verde"><div class="panou-cap"><img class="trifoi" src="imagini/logo/semn-auriu.png" alt="" width="64" height="95">' +
