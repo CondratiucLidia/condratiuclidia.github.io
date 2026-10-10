@@ -177,7 +177,7 @@ window.PROIECTE = [
       "30.jpg",
       "11.jpg", "26.jpg", "25.jpg", "13.jpg",
       "# Direcția II — tonuri deschise și lemn | Направление II — светлые тона и дерево | Direction II — light tones and wood",
-      "16.jpg", "17.jpg", "22.jpg", "28.jpg",
+      "22.jpg", "17.jpg", "16.jpg", "28.jpg",
     ],
   },
 
@@ -198,8 +198,8 @@ window.PROIECTE = [
     rol: { ro: "Proiectarea mobilierului, randări, desene tehnice", ru: "Проектирование мебели, рендеры, чертежи", en: "Furniture design, renderings, technical drawings" },
     coperta: "08.jpg",
     poze: [
-      "03.jpg", "04.jpg", "05.jpg", "06.jpg", "07.jpg", "08.jpg",
-      "15.jpg", "19.jpg",
+      "03.jpg", "05.jpg", "06.jpg", "07.jpg", "08.jpg",
+      "15.jpg",
       "# Cum e organizat interiorul | Как устроено внутри | How it is organised inside",
       "10.jpg",
       "# Desene tehnice | Чертежи | Technical drawings",
@@ -224,7 +224,7 @@ window.PROIECTE = [
     rol: { ro: "Proiectarea mobilierului, randări", ru: "Проектирование мебели, рендеры", en: "Furniture design, renderings" },
     coperta: "03.jpg",
     poze: [
-      "01.jpg", "02.jpg", "03.jpg", "04.jpg", "14.jpg",
+      "04.jpg", "03.jpg", "02.jpg", "01.jpg", "14.jpg",
       "# Cum e organizat interiorul | Как устроено внутри | How it is organised inside",
       "05.jpg", "08.jpg",
       "# Zona de zi | Гостиная | Living area",
@@ -306,9 +306,9 @@ window.PROIECTE = [
     stadiu: "vizualizare",
     locatie: { ro: "", ru: "", en: "" },
     rol: { ro: "Proiectarea mobilierului, randări", ru: "Проектирование мебели, рендеры", en: "Furniture design, renderings" },
-    coperta: "01.jpg",
+    coperta: "07.jpg",
     poze: [
-      "01.jpg", "02.jpg", "03.jpg", "04.jpg", "07.jpg", "08.jpg",
+      "02.jpg", "03.jpg", "04.jpg", "07.jpg", "08.jpg",
     ],
   },
 
