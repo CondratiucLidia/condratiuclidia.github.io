@@ -38,7 +38,7 @@ window.SITE = {
   },
 
   // Poza mare de pe prima pagină: "folderul-proiectului/numele-pozei"
-  copertaSite: "dubai/07.jpg",
+  copertaSite: "dubai/03.jpg",
 
   texte: {
     motto: { ro: "Frumos de privit. Ușor de trăit.", ru: "Красиво смотреть. Легко жить.", en: "Beautiful to look at. Easy to live in." },
@@ -173,11 +173,11 @@ window.PROIECTE = [
     poze: [
       "02.png",
       "# Direcția I — piatră, lemn și metal | Направление I — камень, дерево и металл | Direction I — stone, wood and metal",
-      "03.jpg", "04.jpg", "05.jpg", "06.jpg", "21.jpg",
-      "07.jpg", "29.jpg", "30.jpg",
-      "11.jpg", "13.jpg", "24.jpg", "25.jpg", "26.jpg", "27.jpg",
+      "03.jpg", "04.jpg", "05.jpg", "21.jpg",
+      "30.jpg",
+      "11.jpg", "13.jpg", "25.jpg", "26.jpg",
       "# Direcția II — tonuri deschise și lemn | Направление II — светлые тона и дерево | Direction II — light tones and wood",
-      "15.jpg", "16.jpg", "17.jpg", "22.jpg", "23.jpg", "28.jpg",
+      "16.jpg", "17.jpg", "22.jpg", "28.jpg",
     ],
   },
 
@@ -199,9 +199,9 @@ window.PROIECTE = [
     coperta: "01.jpg",
     poze: [
       "01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg", "06.jpg", "07.jpg", "08.jpg",
-      "15.jpg", "16.jpg", "17.jpg", "18.jpg", "19.jpg",
+      "15.jpg", "16.jpg", "17.jpg", "19.jpg",
       "# Mobilierul cu fațadele deschise | Мебель с открытыми фасадами | The furniture with open fronts",
-      "09.jpg", "10.jpg",
+      "10.jpg",
       "# Desene tehnice | Чертежи | Technical drawings",
       "11.jpg", "12.jpg", "13.jpg", "14.jpg", "20.jpg",
     ],
