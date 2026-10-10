@@ -283,9 +283,9 @@ window.PROIECTE = [
     stadiu: "vizualizare",
     locatie: { ro: "", ru: "", en: "" },
     rol: { ro: "Proiectarea mobilierului, randări, desene tehnice", ru: "Проектирование мебели, рендеры, чертежи", en: "Furniture design, renderings, technical drawings" },
-    coperta: "01.jpg",
+    coperta: "03.jpg",
     poze: [
-      "01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg",
+      "03.jpg", "02.jpg", "04.jpg", "05.jpg",
       "# Desene tehnice | Чертежи | Technical drawings",
       "06.jpg", "07.jpg", "08.jpg",
     ],
