@@ -43,7 +43,7 @@
       contactSupra: "Hai să vorbim", inapoi: "Toate proiectele", urmatorul: "Proiectul următor",
       rol: "Rolul meu", concept: "Concept", realizat: "Realizat", vizualizare: "Vizualizare 3D",
       inchide: "Închide", mareste: "Mărește", micsoreaza: "Micșorează", anterioara: "Poza anterioară", urmatoarea: "Poza următoare",
-      poza: "imaginea", lipsa: "Lipsește poza: ", sari: "Sari la conținut",
+      poza: "imaginea", lipsa: "Lipsește poza: ", lipsaVideo: "Lipsește clipul sau nu poate fi redat: ", videoNecunoscut: "Linkul video nu e recunoscut: ", sari: "Sari la conținut",
       categorii: { interior: "Interioare", bucatarie: "Bucătării", mobilier: "Mobilier" },
     },
     ru: {
@@ -55,7 +55,7 @@
       contactSupra: "Давайте обсудим", inapoi: "Все проекты", urmatorul: "Следующий проект",
       rol: "Моя роль", concept: "Концепция", realizat: "Реализовано", vizualizare: "3D-визуализация",
       inchide: "Закрыть", mareste: "Увеличить", micsoreaza: "Уменьшить", anterioara: "Предыдущее фото", urmatoarea: "Следующее фото",
-      poza: "изображение", lipsa: "Нет фото: ", sari: "Перейти к содержанию",
+      poza: "изображение", lipsa: "Нет фото: ", lipsaVideo: "Нет видео или его нельзя воспроизвести: ", videoNecunoscut: "Ссылка на видео не распознана: ", sari: "Перейти к содержанию",
       categorii: { interior: "Интерьеры", bucatarie: "Кухни", mobilier: "Мебель" },
     },
     en: {
@@ -67,7 +67,7 @@
       contactSupra: "Let's talk", inapoi: "All projects", urmatorul: "Next project",
       rol: "My role", concept: "Concept", realizat: "Built", vizualizare: "3D visualisation",
       inchide: "Close", mareste: "Zoom in", micsoreaza: "Zoom out", anterioara: "Previous image", urmatoarea: "Next image",
-      poza: "image", lipsa: "Missing image: ", sari: "Skip to content",
+      poza: "image", lipsa: "Missing image: ", lipsaVideo: "Missing or unplayable video: ", videoNecunoscut: "Video link not recognised: ", sari: "Skip to content",
       categorii: { interior: "Interiors", bucatarie: "Kitchens", mobilier: "Furniture" },
     },
   };
@@ -354,6 +354,36 @@
     return erou + proiecte + proces + despre;
   }
 
+  // ---------- video în pagina proiectului ----------
+  // În continut.js, la proiect:  video: "…"  sau o listă  video: ["…", "…"]
+  //  • link YouTube (și „nelistat”), Vimeo sau Google Drive („oricine are linkul”);
+  //  • sau numele unui fișier .mp4 pus în folderul proiectului (ex.: "tur.mp4").
+  //    Dacă numele conține „auto” (ex.: "auto-tur.mp4"), clipul pornește singur, fără sunet, în buclă.
+  function videoHtml(p) {
+    var titlu = esc(t(p.titlu));
+    var cadru = function (src, allow) {
+      return '<div class="video video-cadru"><iframe src="' + esc(src) + '" title="' + titlu + '" loading="lazy" allow="' + allow +
+        '" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>';
+    };
+    var blocuri = [].concat(p.video || []).filter(Boolean).map(function (v) {
+      v = String(v).trim();
+      var m;
+      if ((m = /(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:[^#]*&)?v=|embed\/|shorts\/|live\/))([\w-]{11})/.exec(v)))
+        return cadru("https://www.youtube-nocookie.com/embed/" + m[1] + "?rel=0", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+      if ((m = /vimeo\.com\/(?:video\/)?(\d+)(?:\/([\da-f]+))?/.exec(v)))
+        return cadru("https://player.vimeo.com/video/" + m[1] + (m[2] ? "?h=" + m[2] : ""), "autoplay; fullscreen; picture-in-picture");
+      if ((m = /drive\.google\.com\/(?:file\/d\/|open\?id=)([\w-]+)/.exec(v)))
+        return cadru("https://drive.google.com/file/d/" + m[1] + "/preview", "autoplay; fullscreen");
+      if (/^[^\/:?#]+\.(mp4|webm)$/i.test(v)) {
+        var auto = /auto/i.test(v);
+        return '<div class="video"><video src="' + esc(cale(p.id, v)) + '" ' + (auto ? "autoplay muted loop playsinline" : "controls playsinline") +
+          ' preload="metadata" data-fisier="' + esc(p.id + "/" + v) + '"></video></div>';
+      }
+      return local ? '<div class="lipsa">' + esc(u("videoNecunoscut") + v) + "</div>" : "";
+    }).join("");
+    return blocuri ? '<div class="videouri">' + blocuri + "</div>" : "";
+  }
+
   // ---------- pagina proiectului ----------
   function paginaProiect(p) {
     var lista = listaPoze(p);
@@ -404,6 +434,7 @@
       (t(p.descriere) ? "<p>" + esc(t(p.descriere)) + "</p>" : "") +
       (t(p.rol) ? '<p class="rol"><b>' + esc(u("rol")) + "</b>" + esc(t(p.rol)) + "</p>" : "") +
       "</div></div>" +
+      videoHtml(p) +
       '<div class="galerie">' + html + "</div>" +
       urmator +
       "</div></article>"
@@ -631,6 +662,20 @@
   }
 
   function leaga() {
+    // clip lipsă sau într-un format pe care browserul nu-l poate reda
+    app.querySelectorAll("video[data-fisier]").forEach(function (vid) {
+      vid.addEventListener("error", function () {
+        var bloc = vid.closest(".video");
+        if (local) {
+          var d = document.createElement("div");
+          d.className = "lipsa";
+          d.textContent = u("lipsaVideo") + "imagini/proiecte/" + vid.getAttribute("data-fisier");
+          bloc.replaceWith(d);
+        } else {
+          bloc.style.display = "none";
+        }
+      });
+    });
     app.querySelectorAll("img[data-fisier]").forEach(function (img) {
       img.addEventListener("error", function () { imgEroare(img, "imagini/proiecte/" + img.getAttribute("data-fisier")); });
       if (img.closest("button.poza")) {
