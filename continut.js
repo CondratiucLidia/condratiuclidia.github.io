@@ -115,9 +115,9 @@ window.SITE = {
     limbi: { ro: "Română (maternă), rusă (fluent)", ru: "Румынский (родной), русский (свободно)", en: "Romanian (native), Russian (fluent)" },
 
     contactText: {
-      ro: "Sunt deschisă pentru un loc de muncă în design de interior și mobilier și pentru proiecte la comandă. Scrie-mi sau sună-mă.",
-      ru: "Открыта к работе в сфере дизайна интерьеров и мебели и к проектам на заказ. Пишите или звоните.",
-      en: "I am open to a position in interior and furniture design and to custom projects. Write to me or call.",
+      ro: "Ai un proiect sau vrei să colaborăm? Scrie-mi sau sună-mă.",
+      ru: "Есть проект или хотите сотрудничать? Пишите или звоните.",
+      en: "Have a project or want to work together? Write to me or call.",
     },
   },
 };
