@@ -146,6 +146,10 @@ window.SITE = {
                  "realizat"    = „Realizat” (mobila e făcută și montată)
                  gol = nu apare
    • coperta   – poza de pe cartonaș
+   • video     – (opțional) clip în pagina proiectului, sub text: link YouTube,
+                 Vimeo sau Google Drive, ori numele unui .mp4 din folderul
+                 proiectului (ex.: "tur.mp4"; "auto-tur.mp4" pornește singur,
+                 fără sunet). Mai multe: ["…", "…"]. Pașii: ghidul pas cu pas.
    • poze      – CEL MAI SIMPLU: nu scrii rândul deloc → se arată toate pozele
                  din folder, în ordinea numelor (01, 02, 03…).
                  SAU un număr (ex.: 12 = de la 01.jpg la 12.jpg)
